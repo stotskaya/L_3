@@ -1,0 +1,319 @@
+
+/* Welcome Link and Welcome Mat Styes */
+#iparWelcomeLink a img#iparWelcomeLinkFlag {height:auto;margin-top:-4px;}
+#iparWelcomeLink a {cursor:pointer;}
+#iparWelcomeLink a:hover {background:none!important;}
+
+.iparWelcomeLink a img.iparWelcomeLinkFlag {height:auto;margin-top:-4px;}
+.iparWelcomeLink a {cursor:pointer;}
+.iparWelcomeLink a:hover {background:none!important;}
+
+#ipboxContent #ipboxLoadedContent div.ipar_custlogo img#customer_logo {margin:10px auto!important;}
+#ipboxContent #ipboxLoadedContent table.ipar_table tbody tr td table#ipar_selects tbody tr td select {margin:5px 0px;}
+#ipboxContent #ipboxLoadedContent table.ipar_table tbody tr td input#ipar_wmatcontinuebutton {color:#000000;font:26px/1 "UnitedItalicSmCdBk", BicubikRegular, sans-serif;width:auto!important;height:auto!important;padding:10px 50px!important;}
+#ipboxContent #ipboxLoadedContent table.ipar_table tbody tr td input#ipar_wmatcontinuebutton:hover {background:#FFFFFF!important;color:#000000!important;}
+#ipboxContent #ipboxLoadedContent table.ipar_table tbody tr td.ipar_welcome h1 {padding:10px!important;font-size:28px!important;}
+#ipboxContent #ipboxLoadedContent table.ipar_table tbody tr td.ipar_listdetails {font-size:11px;}
+#ipboxContent #ipboxLoadedContent table.ipar_table tbody tr td.ipar_paymentdetails {padding:0px;}
+#ipboxContent #ipboxLoadedContent table.ipar_table tbody tr td hr {height:1px!important;background:#000000!important;margin:10px 0px!important;}
+#ipboxContent #ipboxLoadedContent table.ipar_table tbody tr td table#ipar_selects tbody tr td select {margin:2px 0px;}
+
+/* Overriding Website Styles */
+div#ipar_newAddBtn {padding:11px 18px 8px!important;vertical-align:middle!important;cursor:pointer!important;white-space:nowrap!important;text-transform:uppercase!important;text-decoration:none!important;background:#F89C29!important;!important;border 1px solid #F89C29!important;!important;color:#000000!important;font:26px/1 "UnitedItalicSmCdBk", BicubikRegular, sans-serif!important;display:block!important;font-style:normal!important;margin:0;!important;}
+div.product-main-info div#ipar_newPriceEl0 {font-size: 36px!important;}
+div.product-main-info div#ipar_newPriceEl1 {font-size: 36px!important;color:#F89C29!important;width:auto!important;-webkit-text-fill-color:#F89C29!important;}
+ul.products-grid li.item div.price-box {font-size:24px!important;}
+
+/*i-parcel Cart Styling */
+#ipboxContent #ipboxLoadedContent {overflow:hidden!important;}
+#ipboxContent #ipboxLoadedContent table.ipar_carttable thead tr {border:0px!important;background:#CCC!important;}
+#ipboxContent #ipboxLoadedContent table.ipar_carttable thead tr td {padding:10px!important;font-size:14px!important;}
+#ipboxContent #ipboxLoadedContent table.ipar_carttable thead tr td.ipar_nameCol {width:65%!important;padding:10px 5px!important;}
+#ipboxContent #ipboxLoadedContent table.ipar_carttable thead tr td.ipar_priceCol, #ipboxContent #ipboxLoadedContent table.ipar_carttable thead tr td.ipar_quantityCol {width:15%!important;}
+#ipboxContent #ipboxLoadedContent table.ipar_carttable thead tr td.ipar_removeCol {width:5%!important;}
+#ipboxContent #ipboxLoadedContent table.ipar_carttable tbody tr td.ipar_nameCol {width:65%!important;}
+#ipboxContent #ipboxLoadedContent table.ipar_carttable tbody tr td.ipar_priceCol, #ipboxContent #ipboxLoadedContent table.ipar_carttable tbody tr td.ipar_quantityCol {width:15%!important;}
+#ipboxContent #ipboxLoadedContent table.ipar_carttable tbody tr td.ipar_removeCol {width:5%!important;}
+div#ipboxLoadedContent div.cartbuttons {margin:10px auto!important;}
+div#ipboxLoadedContent div.cartbuttons input {background:#CCCCCC!important;color:#EEEEEE!important;font:26px/1 "UnitedItalicSmCdBk", BicubikRegular, sans-serif!important;width:auto!important;height:auto!important;padding:10px 25px!important;border:1px solid #999!important;}
+div#ipboxLoadedContent div.cartbuttons input#checkoutButton {background:#F89C29!important;color:#000000!important;border:1px solid #F89C29!important;}
+div#ipboxLoadedContent div.cartbuttons input:hover {background:#FFFFFF!important;color:#CCCCCC!important;}
+div#ipboxLoadedContent div.cartbuttons input#checkoutButton:hover {background:#FFFFFF!important;}
+div.cartLeft div.ipar_postcode input[type="button"] {font-size:12px!important;font-weight:bold!important;}
+div.cartRight div.ipar_promo input[type="button"] {font-size:12px!important;font-weight:bold!important;}
+
+/* Shipping Info Styling */
+table.ipar_countrytable tbody tr td form div.address div.title {background:#F89C29!important;font-family:"UnitedItalicSmCdBk", BicubikRegular, sans-serif!important;font-size:22px!important;}
+table.ipar_countrytable tbody tr td form div.address.OrderInfo div.form table tbody tr td {padding:0px;line-height:18px!important;}
+table.ipar_countrytable tbody tr td form div.address.OrderInfo div.form table tbody tr td h1 {font-size:22px!important;}
+table.ipar_countrytable tbody tr td img.ipar_iparlogo {display:none;}
+table.ipar_countrytable tbody tr td form div.address div.form table tbody tr td {vertical-align:middle!important;}
+table.ipar_countrytable tbody tr td form div.address div.form table tbody tr td input[type="text"] {background:#FFFFFF!important;padding:8px 4px!important;}
+
+table.ipar_countrytable tbody tr td.ipar_cartButtons {padding:5px 0px 15px 0px;}
+table.ipar_countrytable tbody tr td.ipar_cartButtons input {background:#CCCCCC!important;color:#EEEEEE!important;font:26px/1 "UnitedItalicSmCdBk", BicubikRegular, sans-serif!important;width:auto!important;height:auto!important;padding:10px 25px!important;border:1px solid #999!important;}
+table.ipar_countrytable tbody tr td.ipar_cartButtons input.next {background:#F89C29!important;color:#000000!important;border:1px solid #F89C29!important;}
+table.ipar_countrytable tbody tr td.ipar_cartButtons input:hover {background:#FFFFFF!important;color:#CCCCCC!important;}
+table.ipar_countrytable tbody tr td.ipar_cartButtons input.next:hover {background:#FFFFFF!important;color:#000000!important;}
+
+/* Payment Styling */
+table.ipar_countrytable tbody tr td form div.address div.form input[type="radio"] {opacity:1.0!important;}
+table.ipar_countrytable tbody tr td form div.address div#iparCreditCardDiv div.form table tbody tr td input {background:#FFFFFF!important;padding:8px 4px!important;}
+table.ipar_countrytable tbody tr td form div.address div#iparCreditCardDiv div.form table tbody tr td input#CCExpMo, table.ipar_countrytable tbody tr td form div.address div#iparCreditCardDiv div.form table tbody tr td input#CCExpYear, table.ipar_countrytable tbody tr td form div.address div#iparCreditCardDiv div.form table tbody tr td input#CCVNum {width:50px!important;}
+
+/* Thank You Page Styling */
+table#ipar_tblBillShip tbody tr td div.iparNotice h1 {text-align:center;margin:5px 0px;}
+
+/* Contact CS Pop-Up */
+div#csData {}
+div#csData table.ipar_table tbody tr td {padding:3px;vertical-align:middle;position:relative;}
+div#csData table.ipar_table tbody tr td input[type="text"] {padding:5px;}
+div#csData table.ipar_table tbody tr td select {width:265px;padding:5px;}
+div#csData table.ipar_table tbody tr td textarea {width:250px;padding:6px;height:100px;}
+div#csData table.ipar_table tbody tr td input#cmdSubmitCS {font:26px/1 "UnitedItalicSmCdBk", BicubikRegular, sans-serif!important;width:auto!important;height:auto!important;padding:10px 25px!important;border:0px solid #999;z-index:500;}
+div#csData table.ipar_table tbody tr td input#cmdResetCS {font:26px/1 "UnitedItalicSmCdBk", BicubikRegular, sans-serif!important;width:auto!important;height:auto!important;padding:10px 25px!important;border:0px solid #999;}
+
+/* Returns Popup */
+table.ipar_countrytable {margin:0px auto;}
+table.ipar_countrytable tr td {text-align:center;}
+table.ipar_countrytable tr td input[type="text"] {padding:5px;}
+#iparcelbox input[type="checkbox"] {opacity:1 !important;}
+
+/* Mobile Settings */
+@media screen and (max-width: 568px), (device-aspect-ratio: 40/71) {
+div.iparWelcomeLink {float:right;margin:9px 0px;text-transform:uppercase;}
+div.iparWelcomeLink a {text-decoration:none;}
+table.ipar_countrytable tbody tr td form div.address {width:100%;}
+table.ipar_countrytable tbody tr td form div.address div.form {height:auto;}
+table.ipar_countrytable tbody tr td form div.address div.form table tbody tr td input[type="text"] {width:85%;}
+table.ipar_countrytable tbody tr td form div.OrderInfo div.form table {width:90%;}
+table.ipar_countrytable tbody tr td.ipar_cartButtons input {margin:10px 0px;}
+table.ipar_countrytable tbody tr td form div.CCCol div#iparCreditCardDiv {width:85%;}
+table.ipar_countrytable tbody tr td form div.CCCol div#iparCreditCardDiv div.form table tbody tr td.col1 {width:38%;}
+}
+#iparcelbox, #ipboxOverlay, #ipboxWrapper {position:absolute;top:0;left:0;z-index:64000;overflow:visible;font-family:BicubikRegular;}
+#ipboxOverlay {background:#000000;position:fixed;width:100%;height:100%;z-index:64000;}
+#ipboxMiddleLeft, #ipboxBottomLeft {clear:left;}
+#ipboxContent {background:#FFFFFF;position:relative;-moz-border-radius:10px;border-radius:10px;overflow:visible;box-shadow:5px 5px 20px #000000;-webkit-box-shadow:5px 5px 20px #000000;min-height:300px;height:auto!important;border:1px solid #FFFFFF}
+#ipboxLoadedContent {overflow:auto;margin-bottom:0px;height:auto!important;}
+#ipboxLoadingOverlay, #ipboxLoadingGraphic {top:0;left:0;width:100%;height:100%;}
+#ipboxPrevious, #ipboxNext, #ipboxClose, #ipboxSlideshow {cursor:pointer;}
+#iparcelbox, #ipboxContent, #ipboxLoadedContent {box-sizing: content-box;}
+#iparcelbox {top:100px!important;}
+#ipboxClose {position:absolute;top:-16px;right:-16px;background:url(//script.i-parcel.com/images/ipar_defaultCloseButton.png) no-repeat;width:34px;height:34px;text-indent:-9999px;}
+#ipboxTopLeft {width:0px;height:0px;display:none;}
+#ipboxTopRight {width:0px;height:0px;display:none;}
+#ipboxBottomLeft {width:0px;height:0px;display:none;}
+#ipboxBottomRight {width:0px;height:0px;display:none;}
+#ipboxMiddleLeft {width:0px;display:none;}
+#ipboxMiddleRight {width:0px;display:none;}
+#ipboxTopCenter {height:0px;display:none;}
+#ipboxBottomCenter {height:0px;display:none;}
+.ipboxIframe {background:#FFFFFF;}
+.ipar_custlogo {width:100%;height:auto;margin:0px 0px 10px 0px;}
+.ipar_custlogo img {margin:0px auto;display:block;}
+.ipar_iparlogo {margin:0px 0px 0px 0px;position:absolute;top:7px;right:10px}
+#ipboxLoadedContent hr {border:0px;height:3px;width:100%;background:#FFFFFF;}
+#ipboxLoadedContent i {font-size:11px;display:block;text-align:center;margin:0px 0px 10px 0px;}
+#ipboxContent #ipboxLoadedContent table.ipar_table {font-size:12px;width:99%;border-collapse:collapse;text-align:left;margin:10px auto;}
+#ipboxContent #ipboxLoadedContent table.ipar_table tbody tr td hr{margin:0px;padding:0px}
+#ipboxContent #ipboxLoadedContent table.ipar_table tbody tr td.ipar_listdetails {color:#000000;}
+#ipboxContent #ipboxLoadedContent table.ipar_table tbody tr td.ipar_typesofpayment {text-align:center;padding:5px 0px;}
+#ipboxContent #ipboxLoadedContent table.ipar_table tbody tr td.ipar_typesofpayment span#ipar_paymenttypes img {display:inline-block;}
+#ipboxContent #ipboxLoadedContent table.ipar_table tbody tr td.ipar_paymentdetails {text-align:center;}
+#ipboxContent #ipboxLoadedContent table.ipar_table tbody tr td.ipar_paymentdetails img {padding-top:5px;}
+#ipboxContent #ipboxLoadedContent table.ipar_table tbody tr td div#iparWelcomeMatPostcode {text-align:center;} 
+#ipboxContent #ipboxLoadedContent table.ipar_table tbody tr td table#ipar_selects {width:100%}
+#ipboxContent #ipboxLoadedContent table.ipar_table tbody tr td table#ipar_selects tbody tr td {text-align:right;}#ipboxContent #ipboxLoadedContent table.ipar_table tbody tr td table#ipar_selects tbody tr td.ipar_shippingcurrency {font-size:12px;padding:2px 5px 2px 0px;width:45%;vertical-align:middle;text-align:right;}
+#ipboxContent #ipboxLoadedContent table.ipar_table tbody tr td table#ipar_selects tbody tr td.ipar_paymentcurrency {font-size:12px;padding:2px 5px 2px 0px;width:45%;vertical-align:middle;text-align:right;}
+#ipboxContent #ipboxLoadedContent table.ipar_table tbody tr td table#ipar_selects tbody tr td.ipar_postcode {font-size:12px;padding:2px 5px 2px 0px;width:45%;vertical-align:middle;text-align:right;}
+#ipboxContent #ipboxLoadedContent table.ipar_table tbody tr td table#ipar_selects tbody tr td select {font-size:12px;padding:2px;width:200px;float:left;color:#000000;height:auto;}
+#ipboxContent #ipboxLoadedContent table.ipar_table tbody tr td table#ipar_selects tbody tr td input {font-size:12px;padding:2px;width:192px;float:left;color:#000000;height:auto;}
+#ipboxContent #ipboxLoadedContent table.ipar_table tbody tr td.ipar_welcome h1 {text-align:center;font-size:22px;margin:0px;padding:0px;font-weight:bold;color:#000000;}
+#ipboxContent #ipboxLoadedContent div.ipar_footer {text-align:center;font-size:11px;padding-bottom:10px;color:#000000;}
+table.ipar_countrytable tbody tr td input#cmdLookup, table.ipar_countrytable tbody tr td input#cmdReturn, table.ipar_table tbody tr td input#cmdSubmitCS {background:url() no-repeat #F89C29;height:50px;width:50px;color:#000000;font-size:12px;border:0px;margin:0px 0px 0px 0px;padding:5px 10px;cursor:pointer;border-radius:4px;font-family:BicubikRegular}
+table.ipar_countrytable tbody tr td input#cmdLookup:hover, table.ipar_countrytable tbody tr td input#cmdReturn:hover, table.ipar_table tbody tr td input#cmdSubmitCS:hover {background:url() no-repeat #F89C29;color:#FFFFFF;}
+table.ipar_countrytable tbody tr td div#packTrackData table.ipar_table {width:100%;}
+table.ipar_countrytable tbody tr td div#packTrackData table#ipar_tracktbl {margin-top:10px;}
+table.ipar_countrytable tbody tr td div#packTrackData h4 {color:#000000;margin:0px;}
+table.ipar_countrytable tbody tr td div#packTrackData table.ipar_table thead {font-weight:bold;}
+table.ipar_countrytable tbody tr td div#packTrackData table.ipar_table thead tr {background:#CCC;}
+table.ipar_countrytable tbody tr td div#packTrackData table.ipar_table thead tr td {color:#FFFFFF;padding:5px}
+table.ipar_countrytable tbody tr td div#packTrackData table.ipar_table tbody tr.even {background:#FFFFFF;}
+table.ipar_countrytable tbody tr td div#packTrackData table.ipar_table tbody tr.odd {background:#EEEEEE;}
+table.ipar_countrytable tbody tr td div#packTrackData table.ipar_table tbody tr td {color:#000000;padding:5px;border:0px;}
+table.ipar_countrytable tbody tr td div#packTrackData table.ipar_table tbody tr td select {width:50px;}
+#ipboxContent #ipboxLoadedContent table.ipar_carttable {width:95%;display:block;margin:5px auto;font-size:12px;color:#000000;}
+#ipboxContent #ipboxLoadedContent table.ipar_carttable thead {display:table;width:100%;}
+#ipboxContent #ipboxLoadedContent table.ipar_carttable thead tr {background:#CCC;border:1px solid #000000;}
+#ipboxContent #ipboxLoadedContent table.ipar_carttable thead tr td {width:30%;text-align:left;font-weight:bold;padding:5px;} 
+#ipboxContent #ipboxLoadedContent table.ipar_carttable thead tr td.ipar_nameCol {width:50%;text-align:left;font-weight:bold;padding:5px;}  
+#ipboxContent #ipboxLoadedContent table.ipar_carttable thead tr td.ipar_priceCol {width:22%;text-align:left;font-weight:bold;padding:5px;} 
+#ipboxContent #ipboxLoadedContent table.ipar_carttable thead tr td.ipar_quantityCol {width:22%;text-align:left;font-weight:bold;padding:5px;} 
+#ipboxContent #ipboxLoadedContent table.ipar_carttable thead tr td.ipar_removeCol {width:6%;text-align:left;font-weight:bold;padding:5px;text-decoration: none;} 
+#ipboxContent #ipboxLoadedContent table.ipar_carttable tbody {display:table;width:100%;}
+#ipboxContent #ipboxLoadedContent table.ipar_carttable tbody tr {border-bottom:1px solid #CCC;}
+#ipboxContent #ipboxLoadedContent table.ipar_carttable tbody tr:last-child {border-bottom:0px;}
+#ipboxContent #ipboxLoadedContent table.ipar_carttable tbody tr.ipar_lineItemsEven {background:#FFFFFF;}
+#ipboxContent #ipboxLoadedContent table.ipar_carttable tbody tr.ipar_lineItemsOdd {background:#EEEEEE;}
+#ipboxContent #ipboxLoadedContent table.ipar_carttable tbody tr td {width:30%;text-align:left;padding:5px;} 
+#ipboxContent #ipboxLoadedContent table.ipar_carttable tbody tr td.ipar_nameCol {width:50%;text-align:left;padding:5px;} 
+#ipboxContent #ipboxLoadedContent table.ipar_carttable tbody tr td.ipar_priceCol {width:22%;text-align:left;padding:5px;} 
+#ipboxContent #ipboxLoadedContent table.ipar_carttable tbody tr td.ipar_quantityCol {width:22%;text-align:left;padding:5px;} 
+#ipboxContent #ipboxLoadedContent table.ipar_carttable tbody tr td.ipar_removeCol {width:6%;text-align:right;padding:5px;text-decoration: none;} 
+#ipboxContent #ipboxLoadedContent table.ipar_carttable tbody tr td input {width:50px;float:left;margin-right:10px;}
+#ipboxContent #ipboxLoadedContent div.cartbuttons {display:block;width:95%;margin:0px auto;text-align:center;}
+#ipboxContent #ipboxLoadedContent div.cartbuttons input {margin:10px;background:url() #F89C29;color:#000000;font-size:12px;width:50px;height:50px;border:1px solid #F89C29;padding:0px 10px;}
+#ipboxContent #ipboxLoadedContent div.cartbuttons input:hover {background:url() #000000;color:#FFFFFF;}
+#ipar_wmatcontinuebutton {margin:10px;background:url() #F89C29;color:#000000;font-size:12px;width:135px;height:30px;border:1px solid #F89C29;padding:0px 10px;}
+#ipboxContent #ipboxLoadedContent div#ipar_carttotals {text-align:right;display:block;width:95%;margin:0px auto;font-size:12px;line-height:22px;padding-bottom:10px;}
+#ipboxContent #ipboxLoadedContent div#ipar_carttotals span#ipar_grandtotal {font-weight:bold;}
+table.ipar_countrytable input.ipar_button {padding:6px 12px;background:url() no-repeat #F89C29;border:0px;color:#FFFFFF;cursor:pointer;}
+table.ipar_countrytable input.next {background:url() no-repeat #F89C29;}
+table.ipar_countrytable tbody tr td.ipar_cartButtons {text-align:center;} 
+table.ipar_countrytable tbody tr td div.address {display:inline-block;margin:0px 10px;padding:5px;} 
+table.ipar_countrytable tbody tr td div.ShippingCol {width:60%;} 
+table.ipar_countrytable tbody tr td div.OrderInfo {width:30%;  vertical-align: top;} 
+table.ipar_countrytable tbody tr td div.address div.title {background:#CCC;padding:10px;width:100%;color:#000000;font-size:14px;text-align:left;} 
+table.ipar_countrytable tbody tr td div.address div.form {background:#FFFFFF;padding:10px;width:100%;height:auto;} 
+table.ipar_countrytable tbody tr td div.address div.form table {width:100%;} 
+table.ipar_countrytable tbody tr td div.address div.form table tr td {padding:2px;color:#000000;font-size:12px} 
+table.ipar_countrytable tbody tr td div.ShippingCol div.form table tr td.col1 {width:25%;} 
+table.ipar_countrytable tbody tr td div.ShippingCol div.form table tr td.col2 {width:75%;} 
+table.ipar_countrytable tbody tr td div.ShippingCol div.form table tr td.col2 input {height:auto;background-color:#DDDDDD;} 
+table.ipar_countrytable tbody tr td div.OrderInfo div.form table tr td.col1 {width:50%;} 
+table.ipar_countrytable tbody tr td div.OrderInfo div.form table tr td.col2 {width:50%;text-align:right;font-weight:bold;} 
+table.ipar_countrytable tbody tr td div.OrderInfo div.form table tr td h1 {margin:0px;border-bottom:1px solid #000; padding: 0px 0px 0px 0px;} 
+table.ipar_countrytable tbody tr td div.address div.form table tr td input {width:100%;padding:4px;border:1px solid #CCCCCC;background-color:#EEEEEE;border-top-color:#999;font-size:12px;height:13px;color:#000000!important;} 
+table.ipar_countrytable tbody tr td div.OrderInfo div.form table tr td br {display:block;} 
+ 
+table.ipar_countrytable tbody tr td div.checkoutContinue {width:97%;padding:10px;} 
+table.ipar_countrytable tbody tr td div.checkoutContinue input {float:right;} 
+#ipboxContent #ipboxLoadedContent div#csData table.ipar_table { width:auto!important; } 
+#ipboxContent #ipboxLoadedContent div#csData table.ipar_table thead {border:0px;} 
+#ipboxContent #ipboxLoadedContent div#csData table.ipar_table tbody {} 
+#ipboxContent #ipboxLoadedContent div#csData table.ipar_table tbody td:first-child {} 
+#ipboxContent #ipboxLoadedContent div#csData table.ipar_table tbody td {} 
+#ipboxContent #ipboxLoadedContent div#csData table.ipar_table tbody td input[type="text"] {width:99%;} 
+#ipboxContent #ipboxLoadedContent div#csData table.ipar_table tbody td select {width:99%;} 
+#ipboxContent #ipboxLoadedContent div#csData table.ipar_table tbody td textarea {width:99%;} 
+#ipboxContent #ipboxLoadedContent div#csData table.ipar_table tbody td input#cmdResetCS {background:#CCCCCC;height:50px;width:50px;color:#000000;font-size:12px;border:0px;margin:0px 0px 0px 0px;padding:5px 10px;cursor:pointer;border-radius:4px;font-family:arial} 
+h1.iparNotice {text-align:center;margin:-12px 0px 12px 0px;color:red;} 
+table#ipar_tblSteps { width: 100%;} 
+table#ipar_tblSteps tbody tr td.ipar_steps {background:#FFFFFF;padding:10px 0px;text-align:center;font-size:12px;} 
+table#ipar_tblSteps tbody tr td.ipar_steps a {text-decoration:none;color:#A5A5A5;cursor:pointer;} 
+table#ipar_tblSteps tbody tr td.ipar_steps a.current {font-weight:bold;color:#000000;cursor:pointer;} 
+table#ipar_tblSteps tbody tr td.ipar_steps a.complete {font-weight:bold;color:#000000;cursor:pointer;} 
+table#ipar_tblSteps tbody tr td.ipar_steps a.complete:hover {color:#000000;} 
+/* i-parcel Payment */
+#ipar_tblBillShip { width:100%; }#ipar_tblPayment { width:100%; text-align: left;}table.ipar_countrytable tbody tr td div.CCCol {width:60%; vertical-align: top;}table.ipar_countrytable tbody tr td div.CCCol div.form table tr td.col1 {width:40%;}table.ipar_countrytable tbody tr td div.CCCol div.form table tr td.col2 {width:60%;}table.ipar_countrytable tbody tr td div.addresses {width:45%;display:inline-block;margin:0px 10px;padding:5px;line-height:18px;vertical-align:top;font-size:11px;}
+table.ipar_countrytable tbody tr td div.addresses b {font-weight:bold;}
+table.ipar_countrytable tbody tr td div.addresses br {display:block;}
+table.ipar_countrytable tbody tr td div.payment {width:96%;display:block;margin:0px;padding:5px;}
+table.ipar_countrytable tbody tr td div.payment div.title {background:#6E7645;padding:10px;width:100%;color:#FFFFFF;font-size:14px;text-align:left;}
+table.ipar_countrytable tbody tr td div.payment div.form {background:#E1D8B7;padding:10px;width:100%;height:auto;margin-top:10px;}
+table.ipar_countrytable tbody tr td div.payment div.form table {width:100%;}
+table.ipar_countrytable tbody tr td div.payment div.form table tr td.col1 {width:18%;}
+table.ipar_countrytable tbody tr td div.payment div.form table tr td.col2 {width:82%;}
+table.ipar_countrytable tbody tr td div.payment div.form table tr td {padding:2px;color:#000000;font-size:11px;}
+table.ipar_countrytable tbody tr td div.payment div.form table tr td input {width:100%;padding:2px;border:1px solid #CCCCCC;background-color:#EEEEEE;border-top-color:#999;font:11px BicubikRegular;height:13px;}
+table.ipar_countrytable tbody tr td div.payment div.form table tr td input#CCExpMo, table.ipar_countrytable tbody tr td div.payment div.form table tr td input#CCExpYear, table.ipar_countrytable tbody tr td div.payment div.form table tr td input#CCVNum {width:50px;}
+table.ipar_countrytable tbody tr td div.submitPayment {width:98%;padding:10px;}
+table.ipar_countrytable tbody tr td div.submitPayment input {float:right;}
+/* i-parcel Thank You/Order Conf. */
+table.ipar_countrytable tbody tr td div.confirmation {width:99%;display:inline-block;margin:0px;padding:5px;}
+table.ipar_countrytable tbody tr td div.confirmation div.title {background:none;padding:10px;width:100%;color:#6E7645;font-size:28px;text-align:center;font-family:TimesNewRoman;font-weight:bold;}
+table.ipar_countrytable tbody tr td div.confirmation div.form {background:none;padding:10px;margin-top:10px;}
+table.ipar_countrytable tbody tr td div.confirmation div.form p {line-height:18px;}
+table.ipar_countrytable tbody tr td div.confirmation div.form table {width:100%;}
+table.ipar_countrytable tbody tr td div.confirmation div.form table tr td {padding:3px;vertical-align:top;border:1px solid #000;line-height:18px;}
+table.ipar_countrytable tbody tr td div.confirmation div.form table tr td b {font-weight:bold;}
+table.ipar_countrytable tbody tr td div.confirmation div.form table tr td br {display:block;}
+table.ipar_countrytable tbody tr td div.confirmation div.form table tr td table.orderDetails {width:100%;}
+table.ipar_countrytable tbody tr td div.confirmation div.form table tr td table.orderDetails tr td table.totals {width:100%;}
+table.ipar_countrytable tbody tr td div.confirmation div.form table tr td table.orderDetails tr td table.totals tr td.title {text-align:right;}
+table.ipar_countrytable tbody tr td div.closeCart {width:98%;padding:10px;}
+table.ipar_countrytable tbody tr td div.closeCart input {float:right;}
+@media only screen and (min-width:0px) and (max-width:768px) {
+#iparcelbox, #ipboxOverlay, #ipboxWrapper {width:100%!important;overflow:visible!important;}
+#iparcelbox {top:20px!important;left:0px!important;}
+#ipboxContent {width:100%!important;min-height:300px;height:auto!important;border-radius:0px!important;-moz-border-radius:0px!important;}
+#ipboxLoadedContent {width:98%!important;overflow:auto;margin-bottom:0px;height:auto!important;}
+#ipboxContent #ipboxLoadedContent table.ipar_table tbody tr td.ipar_welcome h1 {font-size:18px;margin:0px 0px 5px 0px;}
+#ipboxClose {position:absolute;top:-10px;left:0px;background:url(//script.i-parcel.com/images/ipar_defaultCloseButton.png) no-repeat;width:34px;height:34px;text-indent:-9999px;}
+}
+#ipboxContent {-moz-box-shadow: 5px 5px 10px #333333} 
+#ipboxContent {-webkit-box-shadow: 5px 5px 10px #333333} 
+#ipboxContent {box-shadow: 5px 5px 10px #333333} 
+#ipboxContent {-moz-border-radius: 10px} 
+#ipboxContent {border-radius: 10px} 
+.iparWelcomeLink {text-decoration:none;} 
+.iparWelcomeLink {font-style:normal;} 
+.iparWelcomeLink {font-weight:normal;} 
+.iparWelcomeLink {color:#000000; margin:0px; padding:0px; font-size: 14px;} 
+.iparWelcomeLink a {color:#000000;}#fontColorDisplay {background: #000000;} 
+.iparWelcomeLink a:hover {background: #000000;} 
+
+.iparWelcomeLinkFlag {height: 17px; width: 17px} 
+div.price-box { visibility:hidden } 
+div.product-shop div.product-main-info div.price-box { visibility:hidden } 
+div.promo-code-banner { visibility:hidden } 
+p.callout { visibility:hidden } 
+li[id="webspecial"] { visibility:hidden } 
+li[id="pnb20"] { visibility:hidden } 
+li[id="vday"] { visibility:hidden } 
+li.level1.nav-5-5 { visibility:hidden } 
+p.help { visibility:hidden } 
+li.cs-phone { visibility:hidden } 
+div.centering.new-products.section { visibility:hidden } 
+li[id="pinpolo"] { visibility:hidden } 
+li[id="flashsale"] { visibility:hidden } 
+li[id="potm16"] { visibility:hidden } 
+li[id="potm16"] { visibility:hidden } 
+li[id="q2pants"] { visibility:hidden } 
+li[id="wsmd"] { visibility:hidden } 
+div[id="days511"] { visibility:hidden } 
+li[id="main-511-days"] { visibility:hidden } 
+li[id="potm17-hero"] { visibility:hidden } 
+
+ /* this is CSS for the jquery-loadmask */ 
+.loadmask {z-index: 70000;position: absolute;top:0;left:0;-moz-opacity: 0.5;opacity: .50;filter: alpha(opacity=60);background-color: #CCC;width: 100%;height: 100%;zoom: 1;} 
+.loadmask-msg {z-index: 70001;position: absolute;top: 0;left: 0; padding:2px;} 
+.loadmask-msg div {padding:5px 10px 5px 25px;background: url('//script.i-parcel.com/images/spinners/loading_bw_128px.gif') no-repeat 5px 5px;line-height: 16px; color:#222;font:normal 11px tahoma, BicubikRegular, helvetica, sans-serif;cursor:wait;}
+.masked {overflow: hidden !important;} 
+.masked-relative {position: relative !important;} 
+.masked-hidden {visibility: hidden !important;} 
+#partner_msg{ color: black !important; }
+
+.ipar_cartBottom {width:100%;border:0px;background:#EEE;padding:0px;margin:0px;display:table;font-size:12px;font-family:BicubikRegular;}
+.ipar_cartBottom div.cartLeft {display:table-cell;width:50%;margin:0px;padding:0px;background:#EEE;border-right:1px solid #FFF;}
+.ipar_cartBottom div.cartRight {display:table-cell;width:50%;margin:0px;padding:0px;background:#EEE;border-left:1px solid #FFF}
+.ipar_cartBottom div.cartLeft div, .ipar_cartBottom div.cartRight div {padding:6px 0px;width:95%;text-align:center;display:block;margin:0px auto;}
+.ipar_cartBottom div.cartLeft div.topOption, .ipar_cartBottom div.cartRight div.topOption {width:100%;background:#CCC;border-bottom:2px solid #FFF;}
+.ipar_cartBottom div.cartLeft div.bottomOption, .ipar_cartBottm div.cartRight div.bottomOption {}
+.ipar_cartBottom div.cartLeft div.ipar_postcode input[type="text"], .ipar_cartBottom div.cartRight div.ipar_promo input[type="text"] {padding:0px 2px; width:23%;}
+.ipar_cartBottom div.cartLeft div.ipar_postcode input[type="button"], .ipar_cartBottom div.cartRight div.ipar_promo input[type="button"] {font-size:12px; background-color:#FFFFFF;color:#000000;border:1px solid #CCCCCC;padding:1px 10px 1px 10px;}
+.ipar_cartBottom div.cartLeft div input, .ipar_cartBottom div.cartRight div input {display:inline-block;}
+.ipar_cartBottom div.cartLeft div.shipOptions {text-align:left;}
+.ipar_cartBottom div.cartLeft div.shipOptions span.shipOptionsTitle, .ipar_cartBottom div.cartRight div.ipar_quoteTotals span.quoteTotalsTitle {display:block;border-bottom:1px solid #000; padding:0px 2px 2px 0px;margin-bottom:6px;text-align:left;font-weight:bold;font-size:14px;}
+div.shipOptions input[type="radio"] {opacity:1 !important;}
+div.shipOptions div {text-align:left !important;}
+.ipar_cartBottom div.cartRight div.ipar_quoteTotals div.totalRow {padding:0px;width:100%;}
+.ipar_cartBottom div.cartRight div.ipar_quoteTotals div.totalRow div.ipar_cartTotals_title {float:left;width:50%;text-align:left;padding:1px 0px;}
+.ipar_cartBottom div.cartRight div.ipar_quoteTotals div.totalRow div.ipar_cartTotals_Total {float:right;width:50%;text-align:right;padding:1px 0px;}
+.ipar_cartBottom div.cartRight div.ipar_quoteTotals div.totalRow div.grandTotal {font-weight:bold;font-size:15px;padding:6px 0px;}
+.ipar_cartBottom div.clear {clear:both;}
+@media only screen and (min-width:0px) and (max-width:767px) {
+    .ipar_cartBottom div.cartLeft, .ipar_cartBottom div.cartRight {float:none;display:block;width:100%;border:0px;}
+    .ipar_cartBottom div.cartRight div.topOption {border-top:4px solid #FFF;}
+}
+.iparMat_GetShippingBilling { margin:4px 10px; display:block;width:100%; text-align:left;}
+.iparMat_GetShippingBilling div { padding: 3px 0px; width:100%;}
+.iparMat_GetShippingBilling div label { display:inline-block; min-width:25%;}
+.iparMat_GetShippingBilling input[type="text"] { width:72%;display:inline-block;padding:2px;}
+.spanSameAsShipping { float:right;}
+.spanSameAsShipping input[type="checkbox"] { width:20px !important; opacity:1 !important}
+.iparMat_AddressShipping,.iparMat_AddressBilling { width:45%;display:inline-block; margin:0 12px 10px 0; font-size: 12px; text-align:left; line-height:16px; }
+.iparMat_AddressShipping h1,.iparMat_AddressBilling h1{ margin-bottom:4px; } 
+.iparMat_AddressShippingBilling { font-size: 12px; text-align:left; margin-bottom:10px; }
+.iparMat_AddressTitle { font-weight:bold;}

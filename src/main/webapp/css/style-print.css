@@ -1,0 +1,61 @@
+* {
+    background: transparent !important;
+    color: black !important;
+    text-shadow: none !important;
+    filter: none !important;
+    -ms-filter: none !important;
+    font-family: "UnitedItalicSmCdBd", Bicubik, sans-serif !important;
+}
+a, a:visited {
+    color: #444 !important;
+    text-decoration: underline;
+}
+pre, blockquote {
+    border: 1px solid #999;
+    page-break-inside: avoid;
+}
+thead { display: table-header-group; }
+tr, img { page-break-inside: avoid; }
+p, h2, h3 { orphans: 3; widows: 3; }
+h2, h3 { page-break-after: avoid; }
+.header-container .header-panel,
+#search_mini_form,
+.nav-container,
+.footer-container,
+#power_reviews,
+.zoom-info,
+.catalog-product-view .product-shop .share-this,
+.catalog-product-view .product-shop .link-wishlist,
+.breadcrumbs .share-this,
+.category-products .swatches,
+.cart .cart-collaterals {
+    display:none !important;
+}
+.header-container .branding a.logo:after,
+.flags .label:after,
+.button > span {
+    border-color:transparent !important;
+}
+.header-container .header {
+    border-bottom:transparent;
+    background:transparent;
+    padding-bottom:5px;
+}
+.header-container .branding:before,
+.header-container .branding a.logo {
+    background-color: transparent !important;
+}
+.sales-order-print .print-head {
+    margin-bottom:15px;
+    padding:10px 0;
+    border-bottom:2px solid #000000;
+}
+.sales-order-print .buttons-set {display: none;}
+.sales-order-print h2 {font-size: 20px;}
+.sales-order-print h1 {margin:20px 0;}
+.sales-order-print > div {
+    width:1004px;
+    margin:0 auto;
+}
+.sales-order-print .order-date {margin-bottom:10px;}
+.sales-order-print .col2-set {font-size: 15px;}
