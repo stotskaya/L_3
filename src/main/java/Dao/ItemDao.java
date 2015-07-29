@@ -13,4 +13,5 @@ public interface ItemDao {
 
     List<Item> selectAll() throws DBSystemException;
 
+    List<Item> selectGroupItems(int idGroup) throws DBSystemException;
 }

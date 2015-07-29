@@ -15,9 +15,9 @@ public class ItemDaoJdbc implements ItemDao{
     public static final String PASSWORD = "1";
     public static final String JDBC_URL = "jdbc:oracle:thin:@localhost:1521:XE";
 
-    public static final String DELETE_BY_ID_SQL = "DELETE FROM ITEM WHERE id = ?";
-    public static final String SELECT_ALL_SQL = "SELECT * FROM ITEM";
-    public static final String INSERT_INTO_SQL = "INSERT INTO ITEM VALUES(NULL,?,?)";
+    public static final String DELETE_BY_ID_SQL = "DELETE FROM ITEMS WHERE id = ?";
+    public static final String SELECT_ALL_SQL = "SELECT * FROM ITEMS";
+    public static final String INSERT_INTO_SQL = "INSERT INTO ITEMS VALUES(NULL,?,?)";
 
     static {
         JdbcUtils.initDriver(DRIVER_CLASS_NAME);
@@ -69,13 +69,20 @@ public class ItemDaoJdbc implements ItemDao{
         try{
             st = connection.createStatement();
             rs = st.executeQuery(SELECT_ALL_SQL);
+
             ArrayList<Item> list = new ArrayList<Item>();
             while (rs.next()){
+
                 Item i = new Item();
                 i.setId(rs.getLong("id"));
                 i.setName(rs.getString("name"));
                 i.setPrice(rs.getInt("price"));
+                i.setItemGroup(rs.getLong("item_group"));
+                i.setDescription(rs.getString("description"));
+                i.setImage_1(rs.getString("image_1"));
+                i.setImage_2(rs.getString("image_2"));
                 list.add(i);
+
             }
             return list;
         } catch (SQLException e){
@@ -83,4 +90,35 @@ public class ItemDaoJdbc implements ItemDao{
             throw new DBSystemException("Can't execute SQL = " + SELECT_ALL_SQL);
         }
     }
+
+
+    public List<Item> selectGroupItems(int idGroup) throws DBSystemException{
+        Connection connection = getConnection();
+        Statement st;
+        ResultSet rs = null;
+        try{
+            st = connection.createStatement();
+            rs = st.executeQuery(SELECT_ALL_SQL);
+
+            ArrayList<Item> list = new ArrayList<Item>();
+            while (rs.next()){
+                if (rs.getLong("item_group") == idGroup){
+                    Item i = new Item();
+                    i.setId(rs.getLong("id"));
+                    i.setName(rs.getString("name"));
+                    i.setPrice(rs.getInt("price"));
+                    i.setItemGroup(rs.getLong("item_group"));
+                    i.setDescription(rs.getString("description"));
+                    i.setImage_1(rs.getString("image_1"));
+                    i.setImage_2(rs.getString("image_2"));
+                    list.add(i);
+                }
+            }
+            return list;
+        } catch (SQLException e){
+            JdbcUtils.rollbackQuietly(connection);
+            throw new DBSystemException("Can't execute SQL = " + SELECT_ALL_SQL);
+        }
+    }
+
 }

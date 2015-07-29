@@ -1,13 +1,18 @@
 <%@ page contentType="text/html;charset=utf-8" %>
-<%@ page import="Model.Item" %>
+
+<%@ page import="Model.*" %>
 <%@ page import="Model.ItemsBeans" %>
 <%@ page import="java.util.Iterator" %>
 <%@ page import="Dao.*" %>
 <%@ page import="Exception.*" %>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="java.util.List" %>
+<% ArrayList product_name = new ArrayList();%>
+<% ArrayList product_price = new ArrayList();%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Demo Project</title>
+  <title>TTT</title>
   <meta   charset = "utf-8">
   <meta   name    = "viewport"
           content = "width=device-width, initial-scale=1">
@@ -23,6 +28,11 @@
       background-attachment: fixed;
       background-position: left top;
     }
+    .div-margin-top {
+      margin-top: 80px;
+      margin-left: 380px;
+      margin-right: 350px;
+    }
   </style>
 
 </head>
@@ -35,131 +45,115 @@
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
         <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar" href="pictures/icon.jpg"></span>
+        <span class="icon-bar" datasrc="pictures/icon.jpg"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Головна</a></li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Продукція <span class="caret"></span></a>
-          <ul class="dropdown-menu" role="menu">
-            <li><a href="#">Чохли бронежилетів</a></li>
-            <li><a href="#">РПС</a></li>
-            <li><a href="#">Платформи</a></li>
-            <li><a href="#">Підсумки</a></li>
-          </ul>
-        </li>
-        <li><a href="#contact">Новини</a></li>
-        <li><a href="#contact">Контакти</a></li>
+        <li class="active"><a href="index.jsp">Головна</a></li>
+        <li><a href="items.jsp">Продукція</a></li>
       </ul>
     </div>
-
-    <div id="navbar" class="navbar-collapse collapse">
-      <form class="navbar-form navbar-right">
-        <a class="buttons-set">
-          <img src="pictures/data.png">
-          <a class="btn btn-link" href="authorization.jsp"  title="Register"><span><span>Авторизація</span></span></a></a>
-      </form>
+    <% String authentication = (String) session.getAttribute("authentication"); %>
+    <div id="login_in">
+      <div id="navbar" class="navbar-collapse collapse">
+        <form class="navbar-form navbar-right">
+          <p class="buttons-set">
+            <img src="pictures/data.png">
+            <% if (authentication == null) {%>
+            <a class="btn btn-link" href="authorization.jsp" >Авторизація</a>
+            <% } else {%>
+            <% String userlogin = (String) session.getAttribute("userlogin"); %>
+            <a class="btn btn-link" href="authorization.jsp"><%=userlogin %></a>
+            <%}%>
+            <img src="pictures/cart.png">
+            <% if (session.getAttribute("total_cart_items") != null) {%>
+            <a class="btn btn-link" href="cart.jsp"><span><span>Корзина:  <%= session.getAttribute("total_cart_items")%></span></span></a></p>
+          <% } else {%>
+          <a class="btn btn-link" href="cart.jsp"><span><span>Корзина:  0  </span></span></a></p>
+          <% }%>
+        </form>
+      </div><!--/.nav-collapse -->
     </div>
-
   </div>
 </nav>
 
 <div class="page-header">
-  <div class="container theme-showcase" role="main" >
-    <div class="card signin-card clearfix">
-      <div id="cc_iframe_parent"></div>
-      <h2 class="form-signin-heading">Чохли бронежилетів</h2>
+  <div class="div-margin-top" >
+    <form action="getGroup" method="post">
+      <select class="form-control" name="GroupItems" >
+        <option value="1" selected >Чохли бронежилетів</option>
+        <option value="2">РПС</option>
+        <option value="3">Підсумки</option>
+        <option value="4">Платформи</option>
+        <option value="5">Аптечки</option>
+      </select>
       <p></p>
-      <div class="thumbnail">
-
-        <div class="row">
-          <div class="col-xs-6 col-sm-3 placeholder">
-            <img data-src="holder.js/500*500/auto" src="pictures/items/stan/1_big.jpg" alt="stan_1" class="img-responsive">
-          </div>
-          <div class="col-xs-6 col-sm-3 placeholder">
-            <img data-src="holder.js/500x500/auto" src="pictures/items/stan/2_big.jpg" alt="stan_2" class="img-responsive">
-          </div>
-          <div class="caption">
-            <h3>Бронежилет "Стан"</h3>
-            <p></p> <label>Призначення:</label></p>
-            <p></p><label>Особливості:</label></p>
-            <p><label>Технічні характеристики:</label></p>
-            <input type="submit" value="Замовити" />
-          </div>
-        </div>
-      </div>
-    </div>
+      <input type="hidden" name="action" value="getGroup" >
+      <input type="submit" value="OK" align="center">
+    </form>
   </div>
 </div>
 
 <div class="container">
-    <%
-    ItemsBeans itemsBeans;
-    if (request.getAttribute("modele") != null){
-      itemsBeans = (ItemsBeans) request.getAttribute("modele");
-    } else{
-      ItemDao items = new ItemDaoJdbc();
-      itemsBeans = new ItemsBeans();
-      try {
-        itemsBeans.setItems(items.selectAll());
-      } catch (DBSystemException e) {
-        e.printStackTrace();
-      }
+  <% Integer group_ID =(Integer) session.getAttribute("groupID");
+    List<Item> u;
+    ItemDao items = new ItemDaoJdbc();
+    ItemsBeans itemsBeans = new ItemsBeans();
+    if (group_ID != null) {
+      u = items.selectGroupItems(group_ID);
+      itemsBeans.setItems(items.selectGroupItems(group_ID));
+    } else {
+      u = items.selectGroupItems(1);
+      itemsBeans.setItems(items.selectGroupItems(1));
+    }
+    for (Item j : u){
+      product_name.add(j.getName());
+      product_price.add(j.getPrice());
     }
   %>
 
-  <form action="addItem" method="post">
-    <table border="1" width="30%">
-      <tr>
-        <td>Naimenovanie</td>
-        <td><input type="text" name="naimenovanie"></td>
-      </tr>
-      <tr>
-        <td>Price</td>
-        <td><input type="text" name="price"></td>
-      </tr>
-      <tr>
-        <input type="hidden" name="action" value="addItem">
-        <td colspan="2"><input type="submit" value="add"></td>
-      </tr>
-    </table>
-
-  </form>
-
   <table border = "1" width="60%">
     <tr>
-      <th>Наименование</th>
-      <th>Цена</th>
-      <th>Удалить</th>
-    </tr>
+    <% for(Item i: itemsBeans.getItems()){ %>
+      <form action="addtocart" method="post">
+        <div class="card signin-card clearfix">
+          <div id="cc_iframe_parent"></div>
+          <p></p>
 
-    <%
-      Iterator<Item> list = itemsBeans.getItems().iterator();
-      while(list.hasNext()){
-        Item i = list.next();
-    %>
-    <tr>
-      <td><%=i.getName()%></td>
-      <td><%=i.getPrice() %></td>
-      <td>
-        <form action="addItem" method="post">
-          <input type="hidden" name="id" value="<%=i.getId()%>">
-          <input type="hidden" name="action" value="delete">
-          <input type="submit" value="delete" />
-        </form>
-      </td>
-    </tr>
-
-    <%
-      }
-    %>
-
+          <div class="thumbnail">
+            <div class="row">
+              <div class="col-xs-6 col-sm-3 placeholder">
+                <img data-src="holder.js/500*500/auto" src="pictures/items/<%=i.getImage_1()%>.jpg"
+                     class="img-responsive">
+              </div>
+              <% if (i.getImage_2() != null) {%>
+              <div class="col-xs-6 col-sm-3 placeholder">
+                <img data-src="holder.js/500x500/auto" src="pictures/items/<%=i.getImage_2()%>.jpg" class="img-responsive">
+              </div>
+              <%}%>
+              <div class="caption">
+                <h3><span style="color: #6E7645"><%=i.getName()%></span></h3>
+                <p><label>Опис: </label> <span style="font-size: small"><%=i.getDescription()%> </span></p>
+                <p><label>Ціна: </label> <%=i.getPrice()%>  грв</p>
+                <p><label>Кількість: </label> <span id="quantity"> <input type="text" name="quantity" value="" size="10"> </span></p>
+                <input type="hidden" name="action" value="addtocart">
+                <input type="submit" value="Замовити" align="center">
+              </div>
+            </div>
+          </div>
+        </div>
+        <%  session.setAttribute("product_name", product_name);
+            session.setAttribute("product_price", product_price);
+        }%>
+    </form>
   </table>
+
+  <footer>
+    <p>&copy; 2015, TTT. </p>
+  </footer>
+
 </div>
-
-
 
 </body>
 </html>

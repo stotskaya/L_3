@@ -8,6 +8,6 @@ public interface UserDao {
 
     void insert(User user) throws DBSystemException;
 
-    boolean identification(String login, String password) throws DBSystemException;
+    String identification(String login, String password) throws DBSystemException;
 
 }

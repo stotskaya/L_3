@@ -10,7 +10,7 @@
   <meta name="author" content="">
   <link rel="icon" href="pictures/icon.ico">
 
-  <title>Theme Template for Bootstrap</title>
+  <title>TTT</title>
 
   <!-- Bootstrap core CSS -->
   <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -19,7 +19,6 @@
 
   <!-- Custom styles for this template -->
   <link href="css/signin.css" rel="stylesheet">
-
 
   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 
@@ -32,47 +31,46 @@
 <nav class="navbar navbar-inverse navbar-fixed-top">
   <div class="container">
 
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar" href="pictures/icon.jpg"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <ul class="nav navbar-nav">
+      <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar" datasrc="pictures/icon.jpg"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+          </button>
+          <ul class="nav navbar-nav">
 
-        <li class="active"><a href="#">Головна</a></li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Продукція <span class="caret"></span></a>
-          <ul class="dropdown-menu" role="menu">
-            <li><a href="#">Чохли бронежилетів</a></li>
-            <li><a href="#">РПС</a></li>
-            <li><a href="#">Платформи</a></li>
-            <li><a href="#">Підсумки</a></li>
+              <li class="active"><a href="index.jsp">Головна</a></li>
+              <li><a href="items.jsp">Продукція</a></li>
+
           </ul>
-        </li>
-        <li><a href="#contact">Новини</a></li>
-        <li><a href="#contact">Контакти</a></li>
-      </ul>
-    </div>
-    <div id="navbar" class="navbar-collapse collapse">
-      <form class="navbar-form navbar-right">
+      </div>
 
-
-        <a class="buttons-set">
-          <img src="pictures/data.png">
-          <a class="btn btn-link" href="authorization.jsp"  title="Register"><span><span>Авторизація</span></span></a></a>
-
-      </form>
-    </div><!--/.nav-collapse -->
+      <% String authentication = (String) session.getAttribute("authentication");
+          String info = (String) session.getAttribute("info");
+      %>
+      <div id="login_in">
+          <div id="navbar" class="navbar-collapse collapse">
+              <form class="navbar-form navbar-right">
+                  <p class="buttons-set">
+                      <img src="pictures/data.png">
+                      <% if (authentication == null) {%>
+                      <a class="btn btn-link" href="authorization.jsp" >Авторизація</a>
+                      <% } else {%>
+                      <% String userlogin = (String) session.getAttribute("userlogin"); %>
+                      <a class="btn btn-link" href="authorization.jsp"><%=userlogin %></a>
+                      <%}%>
+                      <img src="pictures/cart.png">
+                      <% if (session.getAttribute("total_cart_items") != null) {%>
+                      <a class="btn btn-link" href="cart.jsp"><span><span>Корзина:  <%= session.getAttribute("total_cart_items")%></span></span></a></p>
+                  <% } else {%>
+                  <a class="btn btn-link" href="cart.jsp"><span><span>Корзина:  0  </span></span></a></p>
+                  <% }%>
+              </form>
+          </div><!--/.nav-collapse -->
+      </div>
   </div>
-
-
-
-  </div>
-
 </nav>
-
 
 <!-- Main jumbotron for a primary marketing message or call to action -->
 <div class="page-header">
@@ -82,6 +80,17 @@
 
       <h2 class="form-signin-heading">Авторизація</h2>
       <div class="row">
+          <%    if (authentication != null) { if(authentication.equals("Error"))
+          {
+          %>
+          <div id="wrong_user"> <span style="color:red"> Username/Password is wrong! </span> </div>
+          <% } }%>
+          <%    if (info != null) {
+          {
+          %>
+          <div id="wrong_user"> <span style="color:red"> <%=info %> </span> </div>
+          <% } }%>
+
         <div            class     = "col-sm-3 col-md-6 col-lg-4">
           <form    action = "authorization"  method="post"   role      = "form">
 
@@ -102,8 +111,7 @@
                         class     = "form-control"
                         id        = "password"
                         name      = "password"
-                        required  = "true"
-                        title     = "xxx@xxx.xx">
+                        required  = "true">
             </div>
 
             <form >
@@ -124,7 +132,7 @@
               <input    type      = "text"
                         placeholder = "Призвіще"
                         class     = "form-control"
-
+                        required  = "true"
                         name      = "lastname"
                       >
             </div>
@@ -134,7 +142,7 @@
               <input    type      = "text"
                         placeholder = "Ім'я"
                         class     = "form-control"
-
+                        required  = "true"
                         name      = "firstname"
                       >
             </div>
@@ -144,11 +152,10 @@
               <input    type      = "text"
                         placeholder = "(ХХХ) ХХ-ХХХ-ХХ"
                         class     = "form-control"
-
+                        required  = "true"
                         name      = "number"
+                        title     = "(ХХХ) ХХ-ХХХ-ХХ">
 
-
-                      >
             </div>
 
             <div        class     = "form-group">
@@ -156,7 +163,7 @@
               <input    type      = "text"
                         placeholder = "Логін"
                         class     = "form-control"
-
+                        required  = "true"
                         name      = "login"
                       >
             </div>
@@ -166,7 +173,7 @@
               <input    type      = "text"
                         placeholder = "Пароль"
                         class     = "form-control"
-
+                        required  = "true"
                         name      = "password"
                       >
             </div>
@@ -183,9 +190,6 @@
 
     </div>
 
-
-
-
     <p></p>
 
     <footer>
@@ -194,13 +198,5 @@
   </div>
 </div>
 
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="js/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/docs.min.js"></script>
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="js/ie10-viewport-bug-workaround.js"></script>
 </body>
 </html>

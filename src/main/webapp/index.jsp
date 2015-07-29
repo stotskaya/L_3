@@ -1,3 +1,4 @@
+<%@ page import="java.util.ArrayList" %>
 <%@ page contentType="text/html;charset=utf-8" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -10,7 +11,7 @@
     <meta name="author" content="">
     <link rel="icon" href="pictures/icon.ico">
 
-    <title>Theme Template for Bootstrap</title>
+    <title>TTT</title>
 
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -24,6 +25,8 @@
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 
 </head>
+
+
 <style>
     body {
         background: url('pictures/backGround.jpg') repeat fixed left top;
@@ -44,29 +47,40 @@
             </button>
             <ul class="nav navbar-nav">
 
-                <li class="active"><a href="#">Головна</a></li>
-                <li class="dropdown">
-                    <a  class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Продукція <span class="caret"></span></a>
-                    <ul class="dropdown-menu" role="menu">
-                        <li><a href="items.jsp">Чохли бронежилетів</a></li>
-                        <li><a href="#">РПС</a></li>
-                        <li><a href="#">Платформи</a></li>
-                        <li><a href="#">Підсумки</a></li>
-                    </ul>
-                </li>
-                <li><a href="#">Новини</a></li>
-                <li><a href="#">Контакти</a></li>
+                <li class="active"><a href="index.jsp">Головна</a></li>
+                <li><a href="items.jsp">Продукція</a></li>
 
             </ul>
         </div>
-        <div id="navbar" class="navbar-collapse collapse">
-            <form class="navbar-form navbar-right">
-                <p class="buttons-set">
-                    <img src="pictures/data.png">
-                    <a class="btn btn-link" href="authorization.jsp"  title="Register"><span><span>Авторизація</span></span></a></p>
 
-            </form>
-        </div><!--/.nav-collapse -->
+
+
+        <% String authentication = (String) session.getAttribute("authentication");
+
+        %>
+        <div id="login_in">
+            <div id="navbar" class="navbar-collapse collapse">
+                <form class="navbar-form navbar-right">
+                    <p class="buttons-set">
+                        <img src="pictures/data.png">
+                        <% if (authentication == null) {%>
+                        <a class="btn btn-link" href="authorization.jsp" >Авторизація</a>
+                        <% } else {%>
+                        <% String userlogin = (String) session.getAttribute("userlogin"); %>
+                            <a class="btn btn-link" href="authorization.jsp"><%=userlogin %></a>
+                        <%}%>
+                        <img src="pictures/cart.png">
+                        <% if (session.getAttribute("total_cart_items") != null) {%>
+                        <a class="btn btn-link" href="cart.jsp"><span><span>Корзина:  <%= session.getAttribute("total_cart_items")%></span></span></a></p>
+                    <% } else {%>
+                    <a class="btn btn-link" href="cart.jsp"><span><span>Корзина:  0  </span></span></a></p>
+
+                    <% }%>
+
+                </form>
+            </div><!--/.nav-collapse -->
+        </div>
+
     </div>
 
 </nav>
@@ -91,70 +105,10 @@
         </div>
     </div>
 
+    <jsp:include page="news.jsp" flush="true"/>
 
-    <div class="container theme-showcase" role="main">
-        <!-- START THE FEATURETTES -->
-
-        <hr class="featurette-divider">
-
-        <div class="row featurette">
-            <div class="col-md-7">
-                <h2 class="featurette-heading">Запрошуємо! <p class="text-muted">Виставка "Волонтерський воєнпром" </p></h2>
-                <p class="lead">В цю пятницю і суботу (з 10-00 по 18-00) ми приймаємо участь у другій виставці "Волонтерський воєнпром". З часів першої виставки ми встигли наростити потужності виробництва і підвищити якість продукції. Крім того, розширився наш асортимент. Те, що ми не публікували на сторінці ТТТ - ви зможете власноруч оцінити.
-                    Завітайте - будемо раді!
-                    <a class="btn btn-link" href="http://expo.voenprom.org.ua/visit.html" title="Register"><span><span>Детальніше</span></span></a></p>
-            </div>
-            <div class="col-md-5">
-                <img class="featurette-image img-responsive center-block" data-src="holder.js/500x500/auto" src="pictures/Team_kiev.jpg" alt="Generic placeholder image">
-            </div>
-        </div>
-
-        <hr class="featurette-divider">
-
-        <div class="row featurette">
-            <div class="col-md-7 col-md-push-5">
-                <h2 class="featurette-heading">Вдосконалення пудсумків.</h2>
-                <p class="lead">Магазини на 45 патронів ми переносили лише у відкритому підсумку, відтепер і в закритому. Навіть у такому маленькому виробі, як підсумок для магазинів, ми продовжуємо робити вдосконалення: на цей раз відмова від стрічки в користь кордури.</p>
-            </div>
-            <div class="col-md-5 col-md-pull-7">
-                <img class="featurette-image img-responsive center-block" data-src="holder.js/500x500/auto" src="pictures/pidsumki.jpg" alt="Generic placeholder image">
-            </div>
-        </div>
-
-        <hr class="featurette-divider">
-
-        <div class="row featurette">
-            <div class="col-md-7">
-                <h2 class="featurette-heading"> РПС "ТРИТОН". <p class="text-muted">Декілька слів про технології</p></h2>
-                <p class="lead">Тактичний пояс виконує роль платформи для розміщення спорядження на поясі користувача. Для комфорного носіння поясу, ми використали дихаючу сітку зовні та м'який демпфер всередині поясу, а також жорстку вставку, яка підтримує форму поясу при великих навантаженнях.</p>
-            </div>
-            <div class="col-md-5">
-                <img class="featurette-image img-responsive center-block" data-src="holder.js/500x500/auto"src="pictures/rps.jpg" alt="Generic placeholder image">
-            </div>
-        </div>
-
-        <div class="well">
-            <img width="100%"  src="pictures/wells.jpg">
-        </div>
-
-        <footer>
-            <p class="pull-right"><a href="#">Back to top</a></p>
-            <p>&copy; 2015, TTT. </p>
-        </footer>
-
-
-    </div> <!-- /container -->
-
-
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="js/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/docs.min.js"></script>
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="js/ie10-viewport-bug-workaround.js"></script>
 </div>
+
 
 </body>
 </html>

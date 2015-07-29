@@ -8,7 +8,15 @@ public class User {
     private String number;
     private String login;
     private String Password;
+    private Integer Id;
 
+    public Integer getId() {
+        return Id;
+    }
+
+    public void setId(Integer id) {
+        Id = id;
+    }
 
     public String getPassword() {
         return Password;

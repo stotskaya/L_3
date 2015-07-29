@@ -15,7 +15,7 @@ public class UserDaoJdbc implements UserDao{
 
     public static final String DELETE_BY_ID_SQL = "DELETE FROM ITEM WHERE id = ?";
     public static final String SELECT_WHERE_SQL = "SELECT * FROM USERS WHERE LOGIN = ?";
-    public static final String INSERT_INTO_SQL = "INSERT INTO USERS VALUES(?,?,?,?,?)";
+    public static final String INSERT_INTO_SQL = "INSERT INTO USERS VALUES(?,?,?,?,?,?)";
 
     static {
         JdbcUtils.initDriver(DRIVER_CLASS_NAME);
@@ -39,17 +39,19 @@ public class UserDaoJdbc implements UserDao{
             ps.setString(3, user.getNumber());
             ps.setString(4, user.getPassword());
             ps.setString(5, user.getLogin());
+            ps.setString(6, "");
             ps.execute();
         } catch (SQLException e){
             JdbcUtils.rollbackQuietly(connection);
             throw new DBSystemException("Can't execute SQL = " + INSERT_INTO_SQL);
         } finally {
+
             JdbcUtils.closeQuietly(ps);
             JdbcUtils.closeQuietly(connection);
         }
     }
 
-    public boolean identification(String login, String password) throws DBSystemException {
+    public String identification(String login, String password) throws DBSystemException {
         Connection connection = getConnection();
         try{
             PreparedStatement prep = connection.prepareStatement(SELECT_WHERE_SQL);
@@ -57,13 +59,13 @@ public class UserDaoJdbc implements UserDao{
             ResultSet rs = prep.executeQuery();
             while (rs.next()){
                 if (rs.getString("password").equals(password)){
-                    return true;
+                    return "Success";
                 }
             }
         } catch (SQLException e){
             JdbcUtils.rollbackQuietly(connection);
             throw new DBSystemException("Can't execute SQL = " + INSERT_INTO_SQL);
         }
-        return false;
+        return "Error";
     }
 }
