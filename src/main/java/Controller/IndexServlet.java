@@ -74,21 +74,19 @@ public class IndexServlet extends HttpServlet{
                 user_product_name = (ArrayList) session.getAttribute("product_name");
                 user_product_price = (ArrayList) session.getAttribute("product_price");
                 for (int i = 0; i < itemnames.length; i++) {
-                    total_cart_items = total_cart_items + (Integer.parseInt(itemnames[i]));
-                    quantities_in_cart.add(itemnames[i]);
-                    products_in_cart_list.add(user_product_name.get(i));
-                    Integer price =(Integer) user_product_price.get(i);
-                    prices_in_cart.add(price);
-                    Integer total = price * Integer.parseInt(itemnames[i]);
-                    total_prices_in_cart.add(total);
+                     total_cart_items = total_cart_items + (Integer.parseInt(itemnames[i]));
+                     quantities_in_cart.add(itemnames[i]);
+                     products_in_cart_list.add(user_product_name.get(i));
+                     Integer price =(Integer) user_product_price.get(i);
+                     prices_in_cart.add(price);
+                     Integer total = price * Integer.parseInt(itemnames[i]);
+                     total_prices_in_cart.add(total);
                 }
                 session.setAttribute("total_cart_items", total_cart_items);
                 session.setAttribute("product_in_cart", products_in_cart_list);
                 session.setAttribute("quantity_in_cart", quantities_in_cart);
                 session.setAttribute("prices_in_cart", prices_in_cart);
                 session.setAttribute("total_prices_in_cart", total_prices_in_cart);
-                System.out.println("cart quantity = " + session.getAttribute("product_in_cart"));
-                System.out.println("cart quantity = " + session.getAttribute("quantity_in_cart"));
                 rd = req.getRequestDispatcher("/items.jsp");
             }
             else {

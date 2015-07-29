@@ -82,9 +82,9 @@
   <div class="div-margin-top" >
     <form action="getGroup" method="post">
       <select class="form-control" name="GroupItems" >
-        <option value="1" selected >Чохли бронежилетів</option>
+        <option value="3" selected >Підсумки</option>
         <option value="2">РПС</option>
-        <option value="3">Підсумки</option>
+        <option value="1">Чохли бронежилетів</option>
         <option value="4">Платформи</option>
         <option value="5">Аптечки</option>
       </select>
@@ -105,7 +105,7 @@
       itemsBeans.setItems(items.selectGroupItems(group_ID));
     } else {
       u = items.selectGroupItems(1);
-      itemsBeans.setItems(items.selectGroupItems(1));
+      itemsBeans.setItems(items.selectGroupItems(3));
     }
     for (Item j : u){
       product_name.add(j.getName());
