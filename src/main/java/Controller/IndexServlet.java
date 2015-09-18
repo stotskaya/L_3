@@ -11,6 +11,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
+import org.apache.velocity.*;
+
 
 public class IndexServlet extends HttpServlet{
 
@@ -18,12 +21,12 @@ public class IndexServlet extends HttpServlet{
     UserDao users;
     HttpSession session;
     RequestDispatcher rd;
-    ArrayList products_in_cart_list = new ArrayList();
-    ArrayList prices_in_cart = new ArrayList();
-    ArrayList total_prices_in_cart = new ArrayList();
-    ArrayList quantities_in_cart = new ArrayList();
-    ArrayList user_product_name = new ArrayList();
-    ArrayList user_product_price = new ArrayList();
+    List products_in_cart_list = new ArrayList();
+    List prices_in_cart = new ArrayList();
+    List total_prices_in_cart = new ArrayList();
+    List quantities_in_cart = new ArrayList();
+    List user_product_name = new ArrayList();
+    List user_product_price = new ArrayList();
     int total_cart_items = 0;
 
     @Override
@@ -156,10 +159,8 @@ public class IndexServlet extends HttpServlet{
         user.setNumber(req.getParameter("number"));
         user.setLogin(req.getParameter("login"));
         user.setPassword(req.getParameter("password"));
-        System.out.println("to register");
         try {
             users.insert(user);
-            System.out.println("after insert");
             session.setAttribute("authentication", "Success");
             session.setAttribute("info",  "Registration successful. Please login!");
             req.getRequestDispatcher("/authorization.jsp").forward(req, resp);

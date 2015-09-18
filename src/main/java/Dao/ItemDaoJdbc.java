@@ -8,24 +8,23 @@ import java.util.ArrayList;
 import java.util.List;
 import Exception.*;
 
-public class ItemDaoJdbc implements ItemDao{
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
+import javax.sql.DataSource;
 
-    public static final String DRIVER_CLASS_NAME = "oracle.jdbc.driver.OracleDriver";
-    public static final String LOGIN = "system";
-    public static final String PASSWORD = "1";
-    public static final String JDBC_URL = "jdbc:oracle:thin:@localhost:1521:XE";
+public class ItemDaoJdbc implements ItemDao{
 
     public static final String DELETE_BY_ID_SQL = "DELETE FROM ITEMS WHERE id = ?";
     public static final String SELECT_ALL_SQL = "SELECT * FROM ITEMS";
     public static final String INSERT_INTO_SQL = "INSERT INTO ITEMS VALUES(NULL,?,?)";
 
-    static {
-        JdbcUtils.initDriver(DRIVER_CLASS_NAME);
-    }
-
     private Connection getConnection() throws DBSystemException {
         try {
-            return DriverManager.getConnection(JDBC_URL,LOGIN,PASSWORD);
+            InitialContext initialContext = new InitialContext();
+            DataSource ds = (DataSource) initialContext.lookup("java:comp/env/jdbc/appname");
+            return ds.getConnection();
+        } catch (NamingException e) {
+            throw new DBSystemException("Can't create connection" + e);
         } catch (SQLException e) {
             throw new DBSystemException("Can't create connection" + e);
         }
@@ -70,7 +69,7 @@ public class ItemDaoJdbc implements ItemDao{
             st = connection.createStatement();
             rs = st.executeQuery(SELECT_ALL_SQL);
 
-            ArrayList<Item> list = new ArrayList<Item>();
+            List<Item> list = new ArrayList<Item>();
             while (rs.next()){
 
                 Item i = new Item();
