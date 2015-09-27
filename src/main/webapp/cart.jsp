@@ -37,7 +37,6 @@
 
 </head>
 
-
 <style>
   body {
     background: url('pictures/backGround.jpg') repeat fixed left top;
@@ -45,10 +44,8 @@
 </style>
 <body >
 
-
 <nav class="navbar navbar-inverse navbar-fixed-top">
   <div class="container">
-
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
         <span class="sr-only">Toggle navigation</span>
@@ -57,18 +54,12 @@
         <span class="icon-bar"></span>
       </button>
       <ul class="nav navbar-nav">
-
         <li class="active"><a href="index.jsp">Головна</a></li>
         <li><a href="items.jsp">Продукція</a></li>
-
       </ul>
     </div>
 
-
-
-    <% String authentication = (String) session.getAttribute("authentication");
-
-    %>
+    <% String authentication = (String) session.getAttribute("authentication"); %>
     <div id="login_in">
       <div id="navbar" class="navbar-collapse collapse">
         <form class="navbar-form navbar-right">
@@ -96,58 +87,54 @@
 
 </nav>
 <div class="container">
-
   <div class="page-header">
     <div class="div-margin-top" >
-
-
-
     <%List itemname = (ArrayList) session.getAttribute("product_in_cart");
       List quantityno = (ArrayList) session.getAttribute("quantity_in_cart");
       List itemprice = (ArrayList) session.getAttribute("prices_in_cart");
       List itemtotal = (ArrayList) session.getAttribute("total_prices_in_cart");
     %>
 
-<table class="table" border = "1" width="100%">
-  <tr>
-    <th>#</th>
-    <th>Наименование</th>
-    <th>Цена</th>
-    <th>Количество</th>
-    <th>Итого</th>
-  </tr>
-  <%  if (itemname == null) {%>
-  <p><span style="color: red"> There are no items in your cart now.. </span></p>
-  <%} else {%>
-      <% for (int i = 1; i <= itemname.size(); i++) {%>
-  <tr>
-    <td> <%=i%> </td>
-    <td>  <%= itemname.get(i - 1)%>   </td>
-    <td>  <%= itemprice.get(i - 1)%>   </td>
-    <td> <%= quantityno.get(i - 1)%> </td>
-    <td> <%= itemtotal.get(i - 1)%> </td>
-    <% totalPrice = totalPrice + (Integer)itemtotal.get(i-1);%>
-    <% totalQuantity= totalQuantity + Integer.parseInt((String)quantityno.get(i-1));%>
-  </tr>
-  <%}%>
-    <tr>
+    <table class="table" border = "1" width="100%">
+      <tr>
+        <th>#</th>
+        <th>Наименование</th>
+        <th>Цена</th>
+        <th>Количество</th>
+        <th>Итого</th>
+      </tr>
+      <%  if (itemname == null) {%>
+      <p><span style="color: red"> There are no items in your cart now.. </span></p>
+      <%} else {%>
+          <% for (int i = 1; i <= itemname.size(); i++) {%>
+      <tr>
+        <td> <%=i%> </td>
+        <td>  <%= itemname.get(i - 1)%>   </td>
+        <td>  <%= itemprice.get(i - 1)%>   </td>
+        <td> <%= quantityno.get(i - 1)%> </td>
+        <td> <%= itemtotal.get(i - 1)%> </td>
+        <% totalPrice = totalPrice + (Integer)itemtotal.get(i-1);%>
+        <% totalQuantity= totalQuantity + Integer.parseInt((String)quantityno.get(i-1));%>
+      </tr>
+      <%}%>
+        <tr>
+          <td>  </td>
       <td>  </td>
-  <td>  </td>
-      <td>   </td>
-  <td> <%= totalQuantity %> </td>
+          <td>   </td>
+      <td> <%= totalQuantity %> </td>
 
-  <td> <%= totalPrice%> </td>
-  </tr>
-  <%}%>
-</table>
+      <td> <%= totalPrice%> </td>
+      </tr>
+      <%}%>
+    </table>
 
-  </tr>
+      </tr>
 
-</table>
-    <footer>
-      <p>&copy; 2015, TTT. </p>
-    </footer>
-</div>
+    </table>
+        <footer>
+          <p>&copy; 2015, TTT. </p>
+        </footer>
+    </div>
 
 </div>
 </div>

@@ -20,11 +20,9 @@
     <!-- Custom styles for this template -->
     <link href="css/theme.css" rel="stylesheet">
 
-
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 
 </head>
-
 
 <style>
     body {
@@ -33,10 +31,8 @@
 </style>
 <body >
 
-
 <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
-
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
                 <span class="sr-only">Toggle navigation</span>
@@ -45,18 +41,11 @@
                 <span class="icon-bar"></span>
             </button>
             <ul class="nav navbar-nav">
-
                 <li class="active"><a href="index.jsp">Головна</a></li>
                 <li><a href="items.jsp">Продукція</a></li>
-
             </ul>
         </div>
-
-
-
-        <% String authentication = (String) session.getAttribute("authentication");
-
-        %>
+        <% String authentication = (String) session.getAttribute("authentication");%>
         <div id="login_in">
             <div id="navbar" class="navbar-collapse collapse">
                 <form class="navbar-form navbar-right">
@@ -73,15 +62,11 @@
                         <a class="btn btn-link" href="cart.jsp"><span><span>Корзина:  <%= session.getAttribute("total_cart_items")%></span></span></a></p>
                     <% } else {%>
                     <a class="btn btn-link" href="cart.jsp"><span><span>Корзина:  0  </span></span></a></p>
-
                     <% }%>
-
                 </form>
             </div><!--/.nav-collapse -->
         </div>
-
     </div>
-
 </nav>
 
 <jsp:include page="news.jsp" flush="true"/>

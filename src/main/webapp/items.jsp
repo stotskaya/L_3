@@ -31,11 +31,9 @@
   <!-- Custom styles for this template -->
   <link href="css/theme.css" rel="stylesheet">
 
-
   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 
 </head>
-
 
 <style>
   body {
@@ -47,7 +45,6 @@
 
 <nav class="navbar navbar-inverse navbar-fixed-top">
   <div class="container">
-
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
         <span class="sr-only">Toggle navigation</span>
@@ -56,18 +53,11 @@
         <span class="icon-bar"></span>
       </button>
       <ul class="nav navbar-nav">
-
         <li class="active"><a href="index.jsp">Головна</a></li>
         <li><a href="items.jsp">Продукція</a></li>
-
       </ul>
     </div>
-
-
-
-    <% String authentication = (String) session.getAttribute("authentication");
-
-    %>
+    <% String authentication = (String) session.getAttribute("authentication");%>
     <div id="login_in">
       <div id="navbar" class="navbar-collapse collapse">
         <form class="navbar-form navbar-right">
@@ -84,13 +74,10 @@
             <a class="btn btn-link" href="cart.jsp"><span><span>Корзина:  <%= session.getAttribute("total_cart_items")%></span></span></a></p>
           <% } else {%>
           <a class="btn btn-link" href="cart.jsp"><span><span>Корзина:  0  </span></span></a></p>
-
           <% }%>
-
         </form>
       </div><!--/.nav-collapse -->
     </div>
-
   </div>
 
 </nav>
@@ -121,9 +108,7 @@
     ItemsBeans itemsBeans = new ItemsBeans();
     try {
       if (group_ID != null) {
-
           u = items.selectGroupItems(group_ID);
-
         itemsBeans.setItems(u);
       } else {
         u = items.selectGroupItems(3);
@@ -145,7 +130,6 @@
         <div class="card signin-card clearfix">
           <div id="cc_iframe_parent"></div>
           <p></p>
-
           <div class="thumbnail">
             <div class="row">
               <div class="col-xs-6 col-sm-3 placeholder">

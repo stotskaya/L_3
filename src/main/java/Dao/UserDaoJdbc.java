@@ -28,7 +28,6 @@ public class UserDaoJdbc implements UserDao{
         }
     }
 
-    @Override
     public void insert(User user) throws DBSystemException {
         Connection connection = getConnection();
         PreparedStatement ps = null;
@@ -51,7 +50,6 @@ public class UserDaoJdbc implements UserDao{
         }
     }
 
-    @Override
     public String identification(String login, String password) throws DBSystemException {
         Connection connection = getConnection();
         try{

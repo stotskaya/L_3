@@ -1,12 +1,10 @@
 package utils;
 
+import org.apache.log4j.Logger;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
 
 public final class JdbcUtils {
 
@@ -29,8 +27,7 @@ public final class JdbcUtils {
             try {
                 conn.rollback();
             }catch (SQLException e) {
-                LOGGER.log(Level.ALL,SOMETHING_WRONG_WHEN_ROLL_BACK_DB + e.getSQLState() +
-                        " " + e.getCause());
+                LOGGER.error(SOMETHING_WRONG_WHEN_ROLL_BACK_DB, e);
             }
         }
     }
@@ -45,8 +42,7 @@ public final class JdbcUtils {
             try {
                 rs.close();
             }catch (SQLException e) {
-                LOGGER.log(Level.ALL,SOMETHING_WRONG_WHEN_RESULT_SET_TO_CLOSE
-                        + e.getSQLState() + " " + e.getCause());
+                LOGGER.error(SOMETHING_WRONG_WHEN_RESULT_SET_TO_CLOSE, e);
             }
         }
     }
@@ -61,8 +57,7 @@ public final class JdbcUtils {
             try {
                 ps.close();
             }catch (SQLException e) {
-                LOGGER.log(Level.ALL,SOMETHING_WRONG_WHEN_STATEMENT_TO_CLOSE
-                        + e.getSQLState() + " " + e.getCause() + " " + e.getErrorCode());
+                LOGGER.error(SOMETHING_WRONG_WHEN_STATEMENT_TO_CLOSE, e);
             }
         }
     }
@@ -77,8 +72,7 @@ public final class JdbcUtils {
             try {
                 conn.close();
             }catch (SQLException e) {
-                LOGGER.log(Level.ALL,SOMETHING_WRONG_WHEN_CONNECTION_TO_CLOSE
-                        + e.getSQLState() + " " + e.getCause() + " " + e.getErrorCode());
+                LOGGER.error(SOMETHING_WRONG_WHEN_CONNECTION_TO_CLOSE);
             }
         }
     }

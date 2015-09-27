@@ -25,7 +25,6 @@
 
 </head>
 
-
 <style>
     body {
         background: url('pictures/backGround.jpg') repeat fixed left top;
@@ -33,10 +32,8 @@
 </style>
 <body >
 
-
 <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
-
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
                 <span class="sr-only">Toggle navigation</span>
@@ -45,10 +42,8 @@
                 <span class="icon-bar"></span>
             </button>
             <ul class="nav navbar-nav">
-
                 <li class="active"><a href="index.jsp">Головна</a></li>
                 <li><a href="items.jsp">Продукція</a></li>
-
             </ul>
         </div>
 
@@ -80,25 +75,18 @@
         </div>
 
     </div>
-
 </nav>
-
 
 <!-- Main jumbotron for a primary marketing message or call to action -->
 <div class="page-header">
   <div class="container theme-showcase" role="main" >
     <div class="card signin-card clearfix">
       <div id="cc_iframe_parent"></div>
-
         <% if (userlogin != null){ %>
-
             <form action="signout" method="post" >
             <input type="hidden" name="action" value="signout">
             <input type="submit" value="Вихід" />
             </form>
-
-
-
         <%} else {
             String info = (String) session.getAttribute("info");
         %>
@@ -110,7 +98,6 @@
           <div class="alert alert-danger">
                Username/Password is wrong!
           </div>
-
           <% } }%>
           <%    if (info != null) {
           {
@@ -118,9 +105,7 @@
           <div class="alert alert-danger">
               <%=info %>
           </div>
-
           <% } }%>
-
         <div            class     = "col-sm-3 col-md-6 col-lg-4">
           <form    action = "authorization"  method="post"   role      = "form">
 
