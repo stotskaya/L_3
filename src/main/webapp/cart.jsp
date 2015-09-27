@@ -1,14 +1,13 @@
 <%@ page contentType="text/html;charset=utf-8" %>
-<%@ page import="Model.Item" %>
-<%@ page import="Model.ItemsBeans" %>
+<%@ page import="model.Item" %>
+<%@ page import="model.ItemsBeans" %>
 <%@ page import="java.util.Iterator" %>
-<%@ page import="Dao.*" %>
-<%@ page import="Exception.*" %>
+<%@ page import="dao.*" %>
+<%@ page import="exception.*" %>
 <%@ page import="java.util.ArrayList" %>
-<% ArrayList itemname = new ArrayList();%>
-<% ArrayList quantityno = new ArrayList();%>
-<% ArrayList itemprice = new ArrayList();%>
-<% ArrayList itemtotal = new ArrayList();%>
+<%@ page import="java.util.List" %>
+
+
 <% Integer totalPrice = 0;%>
 <% Integer totalQuantity = 0;%>
 
@@ -31,19 +30,21 @@
   <link href="css/bootstrap-theme.min.css" rel="stylesheet">
 
   <!-- Custom styles for this template -->
-  <link href="css/signin.css" rel="stylesheet">
+  <link href="css/theme.css" rel="stylesheet">
 
-  <style>
 
-    .div-margin-top {
-      margin-top: 80px;
-      margin-left: 380px;
-      margin-right: 350px;
-    }
-  </style>
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 
 </head>
-<body>
+
+
+<style>
+  body {
+    background: url('pictures/backGround.jpg') repeat fixed left top;
+  }
+</style>
+<body >
+
 
 <nav class="navbar navbar-inverse navbar-fixed-top">
   <div class="container">
@@ -62,6 +63,8 @@
 
       </ul>
     </div>
+
+
 
     <% String authentication = (String) session.getAttribute("authentication");
 
@@ -92,16 +95,18 @@
   </div>
 
 </nav>
+<div class="container">
 
-<% itemname = (ArrayList) session.getAttribute("product_in_cart");
-  quantityno = (ArrayList) session.getAttribute("quantity_in_cart");
-  itemprice = (ArrayList) session.getAttribute("prices_in_cart");
-  itemtotal = (ArrayList) session.getAttribute("total_prices_in_cart");
-%>
+  <div class="page-header">
+    <div class="div-margin-top" >
 
-if (itemname != null) {%>
-<div class="page-header">
-  <div class="div-margin-top" >
+
+
+    <%List itemname = (ArrayList) session.getAttribute("product_in_cart");
+      List quantityno = (ArrayList) session.getAttribute("quantity_in_cart");
+      List itemprice = (ArrayList) session.getAttribute("prices_in_cart");
+      List itemtotal = (ArrayList) session.getAttribute("total_prices_in_cart");
+    %>
 
 <table class="table" border = "1" width="100%">
   <tr>
@@ -145,11 +150,4 @@ if (itemname != null) {%>
 </div>
 
 </div>
-
-
-
-
-
-
-</body>
-</html>
+</div>

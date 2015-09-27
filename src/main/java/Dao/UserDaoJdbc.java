@@ -1,8 +1,9 @@
-package Dao;
+package dao;
 
-import Model.User;
-import Exception.*;
-import Utils.JdbcUtils;
+import model.User;
+import exception.*;
+import utils.JdbcUtils;
+import org.apache.log4j.Logger;
 
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
@@ -11,11 +12,11 @@ import java.sql.*;
 
 public class UserDaoJdbc implements UserDao{
 
-    public static final String DELETE_BY_ID_SQL = "DELETE FROM ITEM WHERE id = ?";
     public static final String SELECT_WHERE_SQL = "SELECT * FROM USERS WHERE LOGIN = ?";
     public static final String INSERT_INTO_SQL = "INSERT INTO USERS VALUES(?,?,?,?,?,?)";
+    private static final Logger LOGGER = Logger.getLogger(UserDaoJdbc.class.getName());
 
-    private Connection getConnection() throws DBSystemException {
+    private static Connection getConnection() throws DBSystemException {
         try {
             InitialContext initialContext = new InitialContext();
             DataSource ds = (DataSource) initialContext.lookup("java:comp/env/jdbc/appname");
@@ -27,6 +28,7 @@ public class UserDaoJdbc implements UserDao{
         }
     }
 
+    @Override
     public void insert(User user) throws DBSystemException {
         Connection connection = getConnection();
         PreparedStatement ps = null;
@@ -41,14 +43,15 @@ public class UserDaoJdbc implements UserDao{
             ps.execute();
         } catch (SQLException e){
             JdbcUtils.rollbackQuietly(connection);
+            LOGGER.error("Can't execute SQL = " + INSERT_INTO_SQL, e);
             throw new DBSystemException("Can't execute SQL = " + INSERT_INTO_SQL);
         } finally {
-
             JdbcUtils.closeQuietly(ps);
             JdbcUtils.closeQuietly(connection);
         }
     }
 
+    @Override
     public String identification(String login, String password) throws DBSystemException {
         Connection connection = getConnection();
         try{
@@ -62,7 +65,8 @@ public class UserDaoJdbc implements UserDao{
             }
         } catch (SQLException e){
             JdbcUtils.rollbackQuietly(connection);
-            throw new DBSystemException("Can't execute SQL = " + INSERT_INTO_SQL);
+            LOGGER.error("Can't execute SQL = " + SELECT_WHERE_SQL, e);
+            throw new DBSystemException("Can't execute SQL = " + SELECT_WHERE_SQL);
         }
         return "Error";
     }

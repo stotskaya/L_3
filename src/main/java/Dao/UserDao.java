@@ -1,8 +1,8 @@
-package Dao;
+package dao;
 
 
-import Model.User;
-import Exception.*;
+import model.User;
+import exception.*;
 
 public interface UserDao {
 

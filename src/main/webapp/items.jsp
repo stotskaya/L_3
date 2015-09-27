@@ -1,43 +1,49 @@
 <%@ page contentType="text/html;charset=utf-8" %>
 
-<%@ page import="Model.*" %>
-<%@ page import="Model.ItemsBeans" %>
+<%@ page import="model.*" %>
+<%@ page import="model.ItemsBeans" %>
 <%@ page import="java.util.Iterator" %>
-<%@ page import="Dao.*" %>
-<%@ page import="Exception.*" %>
+<%@ page import="dao.*" %>
+<%@ page import="exception.*" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="java.util.List" %>
-<% ArrayList product_name = new ArrayList();%>
-<% ArrayList product_price = new ArrayList();%>
+<% List product_name = new ArrayList();%>
+<% List product_price = new ArrayList();%>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>TTT</title>
-  <meta   charset = "utf-8">
-  <meta   name    = "viewport"
-          content = "width=device-width, initial-scale=1">
-  <link   rel     = "stylesheet"
-          href    = "css/bootstrap.min.css">
-  <script src     = "js/jquery-1.11.1.min.js"></script>
-  <script src     = "js/bootstrap.min.js"></script>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="icon" href="pictures/icon.ico">
 
-  <style>
-    body {
-      background-image: url('pictures/backGround.jpg');
-      background-repeat: repeat;
-      background-attachment: fixed;
-      background-position: left top;
-    }
-    .div-margin-top {
-      margin-top: 80px;
-      margin-left: 380px;
-      margin-right: 350px;
-    }
-  </style>
+  <title>TTT</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap theme -->
+  <link href="css/bootstrap-theme.min.css" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="css/theme.css" rel="stylesheet">
+
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 
 </head>
 
-<body>
+
+<style>
+  body {
+    background: url('pictures/backGround.jpg') repeat fixed left top;
+  }
+</style>
+<body >
+
 
 <nav class="navbar navbar-inverse navbar-fixed-top">
   <div class="container">
@@ -50,11 +56,18 @@
         <span class="icon-bar"></span>
       </button>
       <ul class="nav navbar-nav">
+
         <li class="active"><a href="index.jsp">Головна</a></li>
         <li><a href="items.jsp">Продукція</a></li>
+
       </ul>
     </div>
-    <% String authentication = (String) session.getAttribute("authentication"); %>
+
+
+
+    <% String authentication = (String) session.getAttribute("authentication");
+
+    %>
     <div id="login_in">
       <div id="navbar" class="navbar-collapse collapse">
         <form class="navbar-form navbar-right">
@@ -71,20 +84,26 @@
             <a class="btn btn-link" href="cart.jsp"><span><span>Корзина:  <%= session.getAttribute("total_cart_items")%></span></span></a></p>
           <% } else {%>
           <a class="btn btn-link" href="cart.jsp"><span><span>Корзина:  0  </span></span></a></p>
+
           <% }%>
+
         </form>
       </div><!--/.nav-collapse -->
     </div>
+
   </div>
+
 </nav>
+
+<div class="container">
 
 <div class="page-header">
   <div class="div-margin-top" >
     <form action="getGroup" method="post">
       <select class="form-control" name="GroupItems" >
-        <option value="3" selected >Підсумки</option>
+        <option value="1"  >Чохли бронежилетів</option>
         <option value="2">РПС</option>
-        <option value="1">Чохли бронежилетів</option>
+        <option value="3" selected>Підсумки</option>
         <option value="4">Платформи</option>
         <option value="5">Аптечки</option>
       </select>
@@ -95,21 +114,27 @@
   </div>
 </div>
 
-<div class="container">
+
   <% Integer group_ID =(Integer) session.getAttribute("groupID");
     List<Item> u;
     ItemDao items = new ItemDaoJdbc();
     ItemsBeans itemsBeans = new ItemsBeans();
-    if (group_ID != null) {
-      u = items.selectGroupItems(group_ID);
-      itemsBeans.setItems(items.selectGroupItems(group_ID));
-    } else {
-      u = items.selectGroupItems(1);
-      itemsBeans.setItems(items.selectGroupItems(3));
-    }
-    for (Item j : u){
-      product_name.add(j.getName());
-      product_price.add(j.getPrice());
+    try {
+      if (group_ID != null) {
+
+          u = items.selectGroupItems(group_ID);
+
+        itemsBeans.setItems(u);
+      } else {
+        u = items.selectGroupItems(3);
+        itemsBeans.setItems(u);
+      }
+      for (Item j : u){
+        product_name.add(j.getName());
+        product_price.add(j.getPrice());
+      }
+    } catch (DBSystemException e) {
+      throw new ServletException(e);
     }
   %>
 
@@ -139,6 +164,17 @@
                 <p><label>Кількість: </label> <span id="quantity"> <input type="text" name="quantity" value="" size="10"> </span></p>
                 <input type="hidden" name="action" value="addtocart">
                 <input type="submit" value="Замовити" align="center">
+                <%
+                  String info = (String) session.getAttribute("info_product");
+                  session.removeAttribute("info_product");
+                  if (info != null){
+                %>
+                <div class="alert alert-warning">
+                  <%=info%>
+                </div>
+                <%
+                }
+                %>
               </div>
             </div>
           </div>
@@ -155,5 +191,3 @@
 
 </div>
 
-</body>
-</html>

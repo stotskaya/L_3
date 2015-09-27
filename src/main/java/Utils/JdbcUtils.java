@@ -1,14 +1,20 @@
-package Utils;
+package utils;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import org.apache.log4j.Logger;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 
 public final class JdbcUtils {
 
     private static final Logger LOGGER = Logger.getLogger(JdbcUtils.class.getName());
+    private static final String SOMETHING_WRONG_WHEN_ROLL_BACK_DB = "Something wrong when rollBack DB";
+    private static final String SOMETHING_WRONG_WHEN_RESULT_SET_TO_CLOSE = "Something wrong when ResultSet to close()";
+    private static final String SOMETHING_WRONG_WHEN_STATEMENT_TO_CLOSE = "Something wrong when Statement to close()";
+    private static final String SOMETHING_WRONG_WHEN_CONNECTION_TO_CLOSE = "Something wrong when Connection to close()";
 
     private JdbcUtils() {
         throw new AssertionError("Instantiating utility class...");
@@ -23,7 +29,8 @@ public final class JdbcUtils {
             try {
                 conn.rollback();
             }catch (SQLException e) {
-                LOGGER.error(SOMETHING_WRONG_WHEN_ROLL_BACK_DB, e);
+                LOGGER.log(Level.ALL,SOMETHING_WRONG_WHEN_ROLL_BACK_DB + e.getSQLState() +
+                        " " + e.getCause());
             }
         }
     }
@@ -38,7 +45,8 @@ public final class JdbcUtils {
             try {
                 rs.close();
             }catch (SQLException e) {
-                LOGGER.error(SOMETHING_WRONG_WHEN_RESULT_SET_TO_CLOSE, e);
+                LOGGER.log(Level.ALL,SOMETHING_WRONG_WHEN_RESULT_SET_TO_CLOSE
+                        + e.getSQLState() + " " + e.getCause());
             }
         }
     }
@@ -53,7 +61,8 @@ public final class JdbcUtils {
             try {
                 ps.close();
             }catch (SQLException e) {
-                LOGGER.error(SOMETHING_WRONG_WHEN_STATEMENT_TO_CLOSE, e);
+                LOGGER.log(Level.ALL,SOMETHING_WRONG_WHEN_STATEMENT_TO_CLOSE
+                        + e.getSQLState() + " " + e.getCause() + " " + e.getErrorCode());
             }
         }
     }
@@ -68,7 +77,8 @@ public final class JdbcUtils {
             try {
                 conn.close();
             }catch (SQLException e) {
-                LOGGER.error(SOMETHING_WRONG_WHEN_CONNECTION_TO_CLOSE, e);
+                LOGGER.log(Level.ALL,SOMETHING_WRONG_WHEN_CONNECTION_TO_CLOSE
+                        + e.getSQLState() + " " + e.getCause() + " " + e.getErrorCode());
             }
         }
     }
@@ -80,8 +90,5 @@ public final class JdbcUtils {
         }
     }
 
-    private static final String SOMETHING_WRONG_WHEN_ROLL_BACK_DB = "Something wrong when rollBack DB";
-    private static final String SOMETHING_WRONG_WHEN_RESULT_SET_TO_CLOSE = "Something wrong when ResultSet to close()";
-    private static final String SOMETHING_WRONG_WHEN_STATEMENT_TO_CLOSE = "Something wrong when Statement to close()";
-    private static final String SOMETHING_WRONG_WHEN_CONNECTION_TO_CLOSE = "Something wrong when Connection to close()";
+
 }

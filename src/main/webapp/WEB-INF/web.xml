@@ -3,19 +3,17 @@
  "http://java.sun.com/dtd/web-app_2_3.dtd" >
 
 <web-app>
-
   <display-name>Archetype Created Web Application</display-name>
 
     <servlet>
         <servlet-name>sp</servlet-name>
-        <servlet-class>Controller.IndexServlet</servlet-class>
+        <servlet-class>controller.IndexServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>
         <servlet-name>sp</servlet-name>
         <url-pattern>/addItem</url-pattern>
     </servlet-mapping>
-
 
     <servlet-mapping>
         <servlet-name>sp</servlet-name>
@@ -41,7 +39,6 @@
         <servlet-name>sp</servlet-name>
         <url-pattern>/signout</url-pattern>
     </servlet-mapping>
-
 
 
 </web-app>

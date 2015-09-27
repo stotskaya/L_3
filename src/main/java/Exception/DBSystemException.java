@@ -1,4 +1,4 @@
-package Exception;
+package exception;
 
 public class DBSystemException extends DBException {
     public DBSystemException(String message) {

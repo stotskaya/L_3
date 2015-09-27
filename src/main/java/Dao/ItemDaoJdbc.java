@@ -1,12 +1,13 @@
-package Dao;
+package dao;
 
-import Model.Item;
-import Utils.JdbcUtils;
+import model.Item;
+import utils.JdbcUtils;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-import Exception.*;
+import exception.*;
+import org.apache.log4j.Logger;
 
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
@@ -17,8 +18,9 @@ public class ItemDaoJdbc implements ItemDao{
     public static final String DELETE_BY_ID_SQL = "DELETE FROM ITEMS WHERE id = ?";
     public static final String SELECT_ALL_SQL = "SELECT * FROM ITEMS";
     public static final String INSERT_INTO_SQL = "INSERT INTO ITEMS VALUES(NULL,?,?)";
+    private static final Logger LOGGER = Logger.getLogger(ItemDaoJdbc.class.getName());
 
-    private Connection getConnection() throws DBSystemException {
+    private static Connection getConnection() throws DBSystemException {
         try {
             InitialContext initialContext = new InitialContext();
             DataSource ds = (DataSource) initialContext.lookup("java:comp/env/jdbc/appname");
@@ -40,6 +42,7 @@ public class ItemDaoJdbc implements ItemDao{
             ps.execute();
         } catch (SQLException e){
             JdbcUtils.rollbackQuietly(connection);
+            LOGGER.error("Can't execute SQL = " + INSERT_INTO_SQL, e);
             throw new DBSystemException("Can't execute SQL = " + INSERT_INTO_SQL);
         }finally {
             JdbcUtils.closeQuietly(ps);
@@ -55,6 +58,7 @@ public class ItemDaoJdbc implements ItemDao{
             ps.execute();
         } catch (SQLException e){
             JdbcUtils.rollbackQuietly(connection);
+            LOGGER.error("Can't execute SQL = " + DELETE_BY_ID_SQL, e);
             throw new DBSystemException("Can't execute SQL = " + DELETE_BY_ID_SQL);
         }finally {
             JdbcUtils.closeQuietly(ps);
@@ -68,10 +72,8 @@ public class ItemDaoJdbc implements ItemDao{
         try{
             st = connection.createStatement();
             rs = st.executeQuery(SELECT_ALL_SQL);
-
-            List<Item> list = new ArrayList<Item>();
+            ArrayList<Item> list = new ArrayList<Item>();
             while (rs.next()){
-
                 Item i = new Item();
                 i.setId(rs.getLong("id"));
                 i.setName(rs.getString("name"));
@@ -81,15 +83,14 @@ public class ItemDaoJdbc implements ItemDao{
                 i.setImage_1(rs.getString("image_1"));
                 i.setImage_2(rs.getString("image_2"));
                 list.add(i);
-
             }
             return list;
         } catch (SQLException e){
             JdbcUtils.rollbackQuietly(connection);
+            LOGGER.error("Can't execute SQL = " + SELECT_ALL_SQL, e);
             throw new DBSystemException("Can't execute SQL = " + SELECT_ALL_SQL);
         }
     }
-
 
     public List<Item> selectGroupItems(int idGroup) throws DBSystemException{
         Connection connection = getConnection();
@@ -98,7 +99,6 @@ public class ItemDaoJdbc implements ItemDao{
         try{
             st = connection.createStatement();
             rs = st.executeQuery(SELECT_ALL_SQL);
-
             ArrayList<Item> list = new ArrayList<Item>();
             while (rs.next()){
                 if (rs.getLong("item_group") == idGroup){
@@ -116,6 +116,7 @@ public class ItemDaoJdbc implements ItemDao{
             return list;
         } catch (SQLException e){
             JdbcUtils.rollbackQuietly(connection);
+            LOGGER.error("Can't execute SQL = " + SELECT_ALL_SQL, e);
             throw new DBSystemException("Can't execute SQL = " + SELECT_ALL_SQL);
         }
     }

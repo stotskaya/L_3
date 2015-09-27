@@ -1,4 +1,3 @@
-<%@ page import="java.util.ArrayList" %>
 <%@ page contentType="text/html;charset=utf-8" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -67,7 +66,7 @@
                         <a class="btn btn-link" href="authorization.jsp" >Авторизація</a>
                         <% } else {%>
                         <% String userlogin = (String) session.getAttribute("userlogin"); %>
-                            <a class="btn btn-link" href="authorization.jsp"><%=userlogin %></a>
+                        <a class="btn btn-link" href="authorization.jsp"><%=userlogin %></a>
                         <%}%>
                         <img src="pictures/cart.png">
                         <% if (session.getAttribute("total_cart_items") != null) {%>
@@ -85,37 +84,8 @@
 
 </nav>
 
-<div class="page-header">
-    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-        <ol class="carousel-indicators">
-            <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-            <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-            <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-        </ol>
-        <div class="carousel-inner" role="listbox">
-            <div class="item active">
-                <img src="pictures/slide_1.jpg" hspace="400" vspace="0" alt="First slide">
-            </div>
-            <div class="item">
-                <img src="pictures/slide_4.jpg" hspace="400" alt="Second slide">
-            </div>
-            <div class="item">
-                <img src="pictures/slide_5.jpg" hspace="400" alt="Third slide">
-            </div>
-        </div>
-    </div>
+<jsp:include page="news.jsp" flush="true"/>
 
-    <jsp:include page="news.jsp" flush="true"/>
 
-</div>
-
-<!-- Bootstrap core JavaScript
-   ================================================== -->
-<!-- Placed at the end of the document so the pages load faster -->
-<script src="js/jquery.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-
-<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-<script src="js/ie10-viewport-bug-workaround.js"></script>
 </body>
 </html>

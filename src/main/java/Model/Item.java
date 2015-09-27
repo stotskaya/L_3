@@ -1,12 +1,12 @@
-package Model;
+package model;
 
 public class Item {
 
-    private Long Id;
-    private String Name;
-    private int Price;
-    private Long ItemGroup;
-    private String Description;
+    private Long id;
+    private String name;
+    private int price;
+    private Long itemGroup;
+    private String description;
     private String image_1;
     private String image_2;
 
@@ -14,49 +14,49 @@ public class Item {
     public Item(){};
 
     public Item(Long id, String name, int price){
-        this.Id = id;
-        this.Name = name;
-        this.Price = price;
+        this.id = id;
+        this.name = name;
+        this.price = price;
     };
 
     public Long getId() {
-        return Id;
+        return id;
     }
 
     public void setId(Long id) {
-        Id = id;
+        id = id;
     }
 
     public String getName() {
-        return Name;
+        return name;
     }
 
     public void setName(String name) {
-        Name = name;
+        this.name = name;
     }
 
     public int getPrice() {
-        return Price;
+        return price;
     }
 
     public void setPrice(int price) {
-        Price = price;
+        this.price = price;
     }
 
     public Long getItemGroup() {
-        return ItemGroup;
+        return itemGroup;
     }
 
     public void setItemGroup(Long itemGroup) {
-        ItemGroup = itemGroup;
+        this.itemGroup = itemGroup;
     }
 
     public String getDescription() {
-        return Description;
+        return description;
     }
 
     public void setDescription(String description) {
-        Description = description;
+        this.description = description;
     }
 
     public String getImage_1() {
