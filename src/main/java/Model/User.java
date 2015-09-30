@@ -7,23 +7,23 @@ public class User {
     private String lastName;
     private String number;
     private String login;
-    private String Password;
-    private Integer Id;
+    private String password;
+    private Integer id;
 
     public Integer getId() {
-        return Id;
+        return id;
     }
 
     public void setId(Integer id) {
-        Id = id;
+        this.id = id;
     }
 
     public String getPassword() {
-        return Password;
+        return password;
     }
 
     public void setPassword(String password) {
-        Password = password;
+        this.password = password;
     }
 
     public String getFirstName() {

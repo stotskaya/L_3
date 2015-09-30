@@ -133,12 +133,12 @@
           <div class="thumbnail">
             <div class="row">
               <div class="col-xs-6 col-sm-3 placeholder">
-                <img data-src="holder.js/500*500/auto" src="pictures/items/<%=i.getImage_1()%>.jpg"
+                <img data-src="holder.js/500*500/auto" src="pictures/items/<%=i.getImageOne()%>.jpg"
                      class="img-responsive">
               </div>
-              <% if (i.getImage_2() != null) {%>
+              <% if (i.getImageTwo() != null) {%>
               <div class="col-xs-6 col-sm-3 placeholder">
-                <img data-src="holder.js/500x500/auto" src="pictures/items/<%=i.getImage_2()%>.jpg" class="img-responsive">
+                <img data-src="holder.js/500x500/auto" src="pictures/items/<%=i.getImageTwo()%>.jpg" class="img-responsive">
               </div>
               <%}%>
               <div class="caption">

@@ -5,34 +5,34 @@ import java.util.List;
 
 public class Cart {
 
-    private List<Item> Items;
+    private List<Item> items;
 
     public Cart(){
-        Items = new ArrayList<Item>();
+        items = new ArrayList<Item>();
     }
 
     public int getAmountPrice() {
         int sum = 0;
-        for (Item item:Items){
+        for (Item item: items){
             sum =+ item.getPrice();
         }
         return sum;
     }
 
     public int getAmountItems() {
-        return Items.size();
+        return items.size();
     }
 
     public List<Item> getItems() {
-        return Items;
+        return items;
     }
 
     public void setItems(List<Item> items) {
-        Items = items;
+        this.items = items;
     }
 
     public void addItem(Item item){
-        Items.add(item);
+        items.add(item);
     }
 
 }

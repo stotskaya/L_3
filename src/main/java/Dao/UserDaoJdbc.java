@@ -14,6 +14,7 @@ public class UserDaoJdbc implements UserDao{
 
     public static final String SELECT_WHERE_SQL = "SELECT * FROM USERS WHERE LOGIN = ?";
     public static final String INSERT_INTO_SQL = "INSERT INTO USERS VALUES(?,?,?,?,?,?)";
+
     private static final Logger LOGGER = Logger.getLogger(UserDaoJdbc.class.getName());
 
     private static Connection getConnection() throws DBSystemException {
@@ -28,6 +29,7 @@ public class UserDaoJdbc implements UserDao{
         }
     }
 
+    @Override
     public void insert(User user) throws DBSystemException {
         Connection connection = getConnection();
         PreparedStatement ps = null;
@@ -42,14 +44,15 @@ public class UserDaoJdbc implements UserDao{
             ps.execute();
         } catch (SQLException e){
             JdbcUtils.rollbackQuietly(connection);
-            LOGGER.error("Can't execute SQL = " + INSERT_INTO_SQL, e);
-            throw new DBSystemException("Can't execute SQL = " + INSERT_INTO_SQL);
+            LOGGER.error(stringError(INSERT_INTO_SQL), e);
+            throw new DBSystemException(stringError(INSERT_INTO_SQL));
         } finally {
             JdbcUtils.closeQuietly(ps);
             JdbcUtils.closeQuietly(connection);
         }
     }
 
+    @Override
     public String identification(String login, String password) throws DBSystemException {
         Connection connection = getConnection();
         try{
@@ -63,9 +66,13 @@ public class UserDaoJdbc implements UserDao{
             }
         } catch (SQLException e){
             JdbcUtils.rollbackQuietly(connection);
-            LOGGER.error("Can't execute SQL = " + SELECT_WHERE_SQL, e);
-            throw new DBSystemException("Can't execute SQL = " + SELECT_WHERE_SQL);
+            LOGGER.error(stringError(SELECT_WHERE_SQL), e);
+            throw new DBSystemException(stringError(SELECT_WHERE_SQL));
         }
         return "Error";
+    }
+
+    private static String stringError(String requestSQL){
+        return "Can't execute SQL request:" + requestSQL;
     }
 }

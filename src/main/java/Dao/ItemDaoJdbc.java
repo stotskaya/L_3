@@ -15,9 +15,18 @@ import javax.sql.DataSource;
 
 public class ItemDaoJdbc implements ItemDao{
 
-    public static final String DELETE_BY_ID_SQL = "DELETE FROM ITEMS WHERE id = ?";
-    public static final String SELECT_ALL_SQL = "SELECT * FROM ITEMS";
-    public static final String INSERT_INTO_SQL = "INSERT INTO ITEMS VALUES(NULL,?,?)";
+    private static final String DELETE_BY_ID_SQL = "DELETE FROM ITEMS WHERE id = ?";
+    private static final String SELECT_ALL_SQL = "SELECT * FROM ITEMS";
+    private static final String INSERT_INTO_SQL = "INSERT INTO ITEMS VALUES(NULL,?,?)";
+
+    private static final String ID = "id";
+    private static final String NAME = "name";
+    private static final String PRICE = "price";
+    private static final String ITEM_GROUP = "item_group";
+    private static final String DESCRIPTION = "description";
+    private static final String IMAGE_ONE = "imageOne";
+    private static final String IMAGE_TWO = "imageTwo";
+
     private static final Logger LOGGER = Logger.getLogger(ItemDaoJdbc.class.getName());
 
     private static Connection getConnection() throws DBSystemException {
@@ -32,6 +41,7 @@ public class ItemDaoJdbc implements ItemDao{
         }
     }
 
+    @Override
     public void insert(Item item) throws DBSystemException{
         Connection connection = getConnection();
         PreparedStatement ps = null;
@@ -42,13 +52,14 @@ public class ItemDaoJdbc implements ItemDao{
             ps.execute();
         } catch (SQLException e){
             JdbcUtils.rollbackQuietly(connection);
-            LOGGER.error("Can't execute SQL = " + INSERT_INTO_SQL, e);
-            throw new DBSystemException("Can't execute SQL = " + INSERT_INTO_SQL);
+            LOGGER.error(stringError(INSERT_INTO_SQL), e);
+            throw new DBSystemException(stringError(INSERT_INTO_SQL));
         }finally {
             JdbcUtils.closeQuietly(ps);
         }
     }
 
+    @Override
     public void deleteById(Long id) throws DBSystemException {
         Connection connection = getConnection();
         PreparedStatement ps = null;
@@ -58,67 +69,72 @@ public class ItemDaoJdbc implements ItemDao{
             ps.execute();
         } catch (SQLException e){
             JdbcUtils.rollbackQuietly(connection);
-            LOGGER.error("Can't execute SQL = " + DELETE_BY_ID_SQL, e);
-            throw new DBSystemException("Can't execute SQL = " + DELETE_BY_ID_SQL);
+            LOGGER.error(stringError(DELETE_BY_ID_SQL), e);
+            throw new DBSystemException(stringError(DELETE_BY_ID_SQL));
         }finally {
             JdbcUtils.closeQuietly(ps);
         }
     }
 
+    @Override
     public List<Item> selectAll() throws DBSystemException{
         Connection connection = getConnection();
         Statement st;
-        ResultSet rs = null;
+        ResultSet rs;
         try{
             st = connection.createStatement();
             rs = st.executeQuery(SELECT_ALL_SQL);
             ArrayList<Item> list = new ArrayList<Item>();
             while (rs.next()){
                 Item i = new Item();
-                i.setId(rs.getLong("id"));
-                i.setName(rs.getString("name"));
-                i.setPrice(rs.getInt("price"));
-                i.setItemGroup(rs.getLong("item_group"));
-                i.setDescription(rs.getString("description"));
-                i.setImage_1(rs.getString("image_1"));
-                i.setImage_2(rs.getString("image_2"));
+                i.setId(rs.getLong(ID));
+                i.setName(rs.getString(NAME));
+                i.setPrice(rs.getInt(PRICE));
+                i.setItemGroup(rs.getLong(ITEM_GROUP));
+                i.setDescription(rs.getString(DESCRIPTION));
+                i.setImageOne(rs.getString(IMAGE_ONE));
+                i.setImageTwo(rs.getString(IMAGE_TWO));
                 list.add(i);
             }
             return list;
         } catch (SQLException e){
             JdbcUtils.rollbackQuietly(connection);
-            LOGGER.error("Can't execute SQL = " + SELECT_ALL_SQL, e);
-            throw new DBSystemException("Can't execute SQL = " + SELECT_ALL_SQL);
+            LOGGER.error(stringError(SELECT_ALL_SQL), e);
+            throw new DBSystemException(stringError(SELECT_ALL_SQL));
         }
     }
 
+    @Override
     public List<Item> selectGroupItems(int idGroup) throws DBSystemException{
         Connection connection = getConnection();
         Statement st;
-        ResultSet rs = null;
+        ResultSet rs;
         try{
             st = connection.createStatement();
             rs = st.executeQuery(SELECT_ALL_SQL);
             ArrayList<Item> list = new ArrayList<Item>();
             while (rs.next()){
-                if (rs.getLong("item_group") == idGroup){
+                if (rs.getLong(ITEM_GROUP) == idGroup){
                     Item i = new Item();
-                    i.setId(rs.getLong("id"));
-                    i.setName(rs.getString("name"));
-                    i.setPrice(rs.getInt("price"));
-                    i.setItemGroup(rs.getLong("item_group"));
-                    i.setDescription(rs.getString("description"));
-                    i.setImage_1(rs.getString("image_1"));
-                    i.setImage_2(rs.getString("image_2"));
+                    i.setId(rs.getLong(ID));
+                    i.setName(rs.getString(NAME));
+                    i.setPrice(rs.getInt(PRICE));
+                    i.setItemGroup(rs.getLong(ITEM_GROUP));
+                    i.setDescription(rs.getString(DESCRIPTION));
+                    i.setImageOne(rs.getString(IMAGE_ONE));
+                    i.setImageTwo(rs.getString(IMAGE_TWO));
                     list.add(i);
                 }
             }
             return list;
         } catch (SQLException e){
             JdbcUtils.rollbackQuietly(connection);
-            LOGGER.error("Can't execute SQL = " + SELECT_ALL_SQL, e);
-            throw new DBSystemException("Can't execute SQL = " + SELECT_ALL_SQL);
+            LOGGER.error(stringError(SELECT_ALL_SQL), e);
+            throw new DBSystemException(stringError(SELECT_ALL_SQL));
         }
     }
 
+    private static String stringError(String requestSQL){
+        return "Can't execute SQL request:" + requestSQL;
+    }
 }

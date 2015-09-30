@@ -1,8 +1,8 @@
 package utils;
 
+import exception.DBSystemException;
 import org.apache.log4j.Logger;
 import java.sql.Connection;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -10,7 +10,6 @@ public final class JdbcUtils {
 
     private static final Logger LOGGER = Logger.getLogger(JdbcUtils.class.getName());
     private static final String SOMETHING_WRONG_WHEN_ROLL_BACK_DB = "Something wrong when rollBack DB";
-    private static final String SOMETHING_WRONG_WHEN_RESULT_SET_TO_CLOSE = "Something wrong when ResultSet to close()";
     private static final String SOMETHING_WRONG_WHEN_STATEMENT_TO_CLOSE = "Something wrong when Statement to close()";
     private static final String SOMETHING_WRONG_WHEN_CONNECTION_TO_CLOSE = "Something wrong when Connection to close()";
 
@@ -28,21 +27,6 @@ public final class JdbcUtils {
                 conn.rollback();
             }catch (SQLException e) {
                 LOGGER.error(SOMETHING_WRONG_WHEN_ROLL_BACK_DB, e);
-            }
-        }
-    }
-
-    /**
-     * Force ResultSet to close
-     * standard idiom
-     * @param rs resulset
-     */
-    public static void closeQuietly(ResultSet rs) {
-        if (rs != null) {
-            try {
-                rs.close();
-            }catch (SQLException e) {
-                LOGGER.error(SOMETHING_WRONG_WHEN_RESULT_SET_TO_CLOSE, e);
             }
         }
     }
@@ -67,22 +51,15 @@ public final class JdbcUtils {
      * standard idiom
      * @param conn the connection with DB
      */
-    public static void closeQuietly(Connection conn) {
+    public static void closeQuietly(Connection conn) throws DBSystemException {
         if (conn != null) {
             try {
                 conn.close();
             }catch (SQLException e) {
                 LOGGER.error(SOMETHING_WRONG_WHEN_CONNECTION_TO_CLOSE);
+                throw new DBSystemException(SOMETHING_WRONG_WHEN_CONNECTION_TO_CLOSE, e);
             }
         }
     }
-
-    public static void initDriver(String str) {
-        try {
-            Class.forName(str);
-        } catch (ClassNotFoundException ignore) {
-        }
-    }
-
 
 }

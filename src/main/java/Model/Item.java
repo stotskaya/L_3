@@ -7,24 +7,24 @@ public class Item {
     private int price;
     private Long itemGroup;
     private String description;
-    private String image_1;
-    private String image_2;
+    private String imageOne;
+    private String imageTwo;
 
-
-    public Item(){};
+    public Item(){
+    }
 
     public Item(Long id, String name, int price){
         this.id = id;
         this.name = name;
         this.price = price;
-    };
+    }
 
     public Long getId() {
         return id;
     }
 
     public void setId(Long id) {
-        id = id;
+        this.id = id;
     }
 
     public String getName() {
@@ -59,19 +59,19 @@ public class Item {
         this.description = description;
     }
 
-    public String getImage_1() {
-        return image_1;
+    public String getImageOne() {
+        return imageOne;
     }
 
-    public void setImage_1(String image_1) {
-        this.image_1 = image_1;
+    public void setImageOne(String imageOne) {
+        this.imageOne = imageOne;
     }
 
-    public String getImage_2() {
-        return image_2;
+    public String getImageTwo() {
+        return imageTwo;
     }
 
-    public void setImage_2(String image_2) {
-        this.image_2 = image_2;
+    public void setImageTwo(String imageTwo) {
+        this.imageTwo = imageTwo;
     }
 }

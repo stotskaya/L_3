@@ -14,6 +14,7 @@ public class GroupItem {
         this.nameGroup = nameGroup;
     }
 
+    @Override
     public String toString(){
         return nameGroup;
     }
