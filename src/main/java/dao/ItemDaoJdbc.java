@@ -30,10 +30,6 @@ public class ItemDaoJdbc implements ItemDao{
 
     private static final Logger LOGGER = Logger.getLogger(ItemDaoJdbc.class.getName());
 
-    static {
-        JdbcUtils.initDriver(DRIVER_CLASS_NAME);
-    }
-
     private static Connection getConnection() throws DBSystemException {
         try {
             InitialContext initialContext = new InitialContext();
