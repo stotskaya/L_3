@@ -26,7 +26,6 @@ public class ItemDaoJdbc implements ItemDao{
     private static final String DESCRIPTION = "description";
     private static final String IMAGE_ONE = "image_1";
     private static final String IMAGE_TWO = "image_2";
-    public static final String DRIVER_CLASS_NAME = "oracle.jdbc.driver.OracleDriver";
 
     private static final Logger LOGGER = Logger.getLogger(ItemDaoJdbc.class.getName());
 
