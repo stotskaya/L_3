@@ -24,10 +24,15 @@ public class ItemDaoJdbc implements ItemDao{
     private static final String PRICE = "price";
     private static final String ITEM_GROUP = "item_group";
     private static final String DESCRIPTION = "description";
-    private static final String IMAGE_ONE = "imageOne";
-    private static final String IMAGE_TWO = "imageTwo";
+    private static final String IMAGE_ONE = "image_1";
+    private static final String IMAGE_TWO = "image_2";
+    public static final String DRIVER_CLASS_NAME = "oracle.jdbc.driver.OracleDriver";
 
     private static final Logger LOGGER = Logger.getLogger(ItemDaoJdbc.class.getName());
+
+    static {
+        JdbcUtils.initDriver(DRIVER_CLASS_NAME);
+    }
 
     private static Connection getConnection() throws DBSystemException {
         try {
@@ -137,4 +142,5 @@ public class ItemDaoJdbc implements ItemDao{
     private static String stringError(String requestSQL){
         return "Can't execute SQL request:" + requestSQL;
     }
+
 }
